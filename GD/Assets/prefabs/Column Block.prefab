@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 477909409558015441}
   - component: {fileID: 917527189076169761}
   - component: {fileID: 652192219685765771}
-  - component: {fileID: 1945140141774626053}
+  - component: {fileID: 7167559685792751699}
   m_Layer: 0
   m_Name: Column Block
   m_TagString: Untagged
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 914
+  m_VersionIndex: 917
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -331,7 +331,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2989185204945399698}
   m_Mesh: {fileID: 0}
---- !u!64 &1945140141774626053
+--- !u!64 &7167559685792751699
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

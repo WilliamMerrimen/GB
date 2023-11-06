@@ -15,8 +15,13 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
     public float jumpForse = 6f;
     public bool onGraund = true;
-
+    public float mouseSens = 100f;
     public Transform gameCamera;
+    public Transform camTarget;
+
+    
+
+    
 
    private void Awake()
    {
@@ -30,14 +35,19 @@ public class PlayerController : MonoBehaviour
       _playerInputActions.PlayerAction.Sprint.started += Sprint;
       _playerInputActions.PlayerAction.Sprint.performed += Sprint;
       _playerInputActions.PlayerAction.Sprint.canceled += Sprint;
-
-
     }
 
-   private void FixedUpdate()
+    
+
+    private void FixedUpdate()
    {
-       
-      Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
+        //float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
+        //float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+        //xRotation -= mouseY;
+        //xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        //gameCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        //_playerPosition.Rotate(Vector3.up * mouseX);
+       Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
       
       _playerPosition.position += new Vector3(inputVector.x, 0 , inputVector.y) * speed * Time.deltaTime;
         if(inputVector.x == 1)
@@ -57,7 +67,7 @@ public class PlayerController : MonoBehaviour
             _statusToSprint = 2;
         }
 
-        gameCamera.position += new Vector3(inputVector.x, 0, inputVector.y ) * speed * Time.deltaTime;
+        gameCamera.position += new Vector3(inputVector.x, 0f, inputVector.y ) * speed * Time.deltaTime;
         //_playerRigidbody.AddForce(new Vector3(inputVector.x, 0 , inputVector.y) * speed, ForceMode.Force);
     }
 
@@ -76,21 +86,25 @@ public class PlayerController : MonoBehaviour
             if(_statusToSprint == -1)
             {
                 _playerRigidbody.AddForce(Vector3.left * 400f * Time.deltaTime, ForceMode.Impulse);
+                gameCamera.position += new Vector3(-1f, 0f, 0f) * Time.deltaTime;
             }
             if (_statusToSprint == 1)
             {
                 _playerRigidbody.AddForce(Vector3.right * 400f * Time.deltaTime, ForceMode.Impulse);
+                gameCamera.position += new Vector3(1f, 0f, 0f) * Time.deltaTime;
             }
             if (_statusToSprint == 2)
             {
-                _playerRigidbody.AddForce(Vector3.forward * -400f * Time.deltaTime, ForceMode.Impulse);
+                _playerRigidbody.AddForce(Vector3.forward * 400f * Time.deltaTime, ForceMode.Impulse);
+                gameCamera.position += new Vector3(0f, 0f, 1f) * Time.deltaTime;
             }
             if (_statusToSprint == -2)
             {
-                _playerRigidbody.AddForce(Vector3.forward * 400f * Time.deltaTime, ForceMode.Impulse);
+                _playerRigidbody.AddForce(Vector3.forward * -400f * Time.deltaTime, ForceMode.Impulse);
+                gameCamera.position += new Vector3(0f, 0f, 1f) * Time.deltaTime;
             }
             Debug.Log("Sprint! " + context.phase);
-            speed = 7f;
+            speed = 5f;
 
 
         }
@@ -101,7 +115,30 @@ public class PlayerController : MonoBehaviour
         }
         else if(context.canceled)
         {
-            speed = 5f;
+            if (_statusToSprint == -1)
+            {
+                _playerRigidbody.AddForce(Vector3.left * -300f * Time.deltaTime, ForceMode.Impulse);
+                gameCamera.position += new Vector3(0.5f, 0f, 0f) * Time.deltaTime;
+                speed = 5f;
+            }
+            if (_statusToSprint == 1)
+            {
+                _playerRigidbody.AddForce(Vector3.right * -300f * Time.deltaTime, ForceMode.Impulse);
+                gameCamera.position += new Vector3(-0.5f, 0f, 0f) * Time.deltaTime;
+                speed = 5f;
+            }
+            if (_statusToSprint == 2)
+            {
+                _playerRigidbody.AddForce(Vector3.forward *-300f * Time.deltaTime, ForceMode.Impulse);
+                gameCamera.position += new Vector3(0f, 0f, -0.5f) * Time.deltaTime;
+                speed = 5f;
+            }
+            if (_statusToSprint == -2)
+            {
+                _playerRigidbody.AddForce(Vector3.forward * 300f * Time.deltaTime, ForceMode.Impulse);
+                gameCamera.position += new Vector3(0f, 0f, -0.5f) * Time.deltaTime;
+                speed = 5f;
+            }
         }
     }
     
