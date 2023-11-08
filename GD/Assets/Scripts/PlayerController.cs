@@ -17,13 +17,14 @@ public class PlayerController : MonoBehaviour
     public bool onGraund = true;
     public float mouseSens = 100f;
     public Transform gameCamera;
-    
 
-    
+    private short _jumpCount = 0;
+    private short _maxCountJump = 1;
+    public bool isEnableDublJump = false;
 
-    
 
-   private void Awake()
+
+    private void Awake()
    {
       _playerRigidbody = GetComponent<Rigidbody>();
       _playerInput = GetComponent<PlayerInput>();
@@ -62,15 +63,20 @@ public class PlayerController : MonoBehaviour
         }
 
         gameCamera.position += new Vector3(inputVector.x, 0f, inputVector.y ) * speed * Time.deltaTime;
-        //_playerRigidbody.AddForce(new Vector3(inputVector.x, 0 , inputVector.y) * speed, ForceMode.Force);
-    }
+
+        if (onGraund)
+            _jumpCount = 0;
+        if (isEnableDublJump)
+            _maxCountJump = 2;
+   }
 
    public void Jump(InputAction.CallbackContext context)
    {
-        if (context.performed & onGraund) 
+       if (context.performed & _jumpCount < _maxCountJump) 
       {
          _playerRigidbody.AddForce(Vector3.up * jumpForse, ForceMode.Impulse);
          Debug.Log("Jump! " + context.phase);
+         _jumpCount += 1;
       }
    }
     public void Sprint(InputAction.CallbackContext context)
@@ -148,6 +154,7 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "Graund")
         {
             onGraund = false;
+            _jumpCount += 1;
         }
     }
 }
