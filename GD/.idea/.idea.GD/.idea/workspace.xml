@@ -20,14 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="434e9809-b5a4-4e3a-9f01-e61edafe53f4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefabs/2conect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/2conect.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefabs/2conect2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/2conect2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefabs/3conect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/3conect.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Column Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/Column Block.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefabs/WayBlock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/WayBlock.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +93,7 @@
       <updated>1699022362740</updated>
       <workItem from="1699022406591" duration="8975000" />
       <workItem from="1699146053858" duration="5953000" />
-      <workItem from="1699228202383" duration="8074000" />
+      <workItem from="1699228202383" duration="9568000" />
     </task>
     <servers />
   </component>

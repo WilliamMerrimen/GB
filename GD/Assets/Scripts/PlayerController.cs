@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput _playerInput;
     private PlayerInputActions _playerInputActions;
     private Transform _playerPosition;
-    private Vector3 inputVector;
+    private Vector3 _inputVector;
     private int _statusToSprint;
 
     public float speed = 5f;
@@ -43,33 +41,29 @@ public class PlayerController : MonoBehaviour
        Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
       
       _playerPosition.position += new Vector3(inputVector.x, 0 , inputVector.y) * speed * Time.deltaTime;
-        if(inputVector.x == 1)
-        {
+      
+      if(inputVector.x == 1)
             _statusToSprint = 1;
-        }
-        else if(inputVector.x == -1)
-        {
-            _statusToSprint = -1;
-        }
-        else if (inputVector.y == -1)
-        {
-            _statusToSprint = -2;
-        }
-        else if (inputVector.y == 1)
-        {
-            _statusToSprint = 2;
-        }
         
+      else if(inputVector.x == -1)
+            _statusToSprint = -1;
+        
+      if (inputVector.y == -1)
+            _statusToSprint = -2;
+        
+      else if (inputVector.y == 1)
+            _statusToSprint = 2;
 
-        if (onGraund)
+
+      if (onGraund)
             _jumpCount = 0;
-        if (isEnableDublJump)
+      if (isEnableDublJump)
             _maxCountJump = 2;
    }
 
    public void Jump(InputAction.CallbackContext context)
-   {
-       if (context.performed & _jumpCount < _maxCountJump) 
+   { 
+      if (context.performed & _jumpCount < _maxCountJump) 
       {
          _playerRigidbody.AddForce(Vector3.up * jumpForse, ForceMode.Impulse);
          Debug.Log("Jump! " + context.phase);
@@ -131,16 +125,16 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision other)
     {
-        if(other.tag == "Graund")
+        if(other.collider.CompareTag("Graund"))
         {
             onGraund = true;
         }
     }
-    public void OnTriggerExit(Collider other)
+    public void OnCollisionExit(Collision other)
     {
-        if (other.tag == "Graund")
+        if (other.collider.CompareTag("Graund"))
         {
             onGraund = false;
             _jumpCount += 1;
