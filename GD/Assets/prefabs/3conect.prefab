@@ -40,10 +40,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3493209794342121376}
     m_Modifications:
-    - target: {fileID: 652192219685765771, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Name
       value: Column Block
@@ -69,8 +65,12 @@ PrefabInstance:
       value: -0.000821352
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
-      propertyPath: m_Mesh
+      propertyPath: m_Material
       value: 
+      objectReference: {fileID: 13400000, guid: 297ccc11f334d7748b311801f789865e, type: 2}
+    - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8107160976175442249, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_VersionIndex
