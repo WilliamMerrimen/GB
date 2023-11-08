@@ -15,8 +15,6 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
     public float jumpForse = 6f;
     public bool onGraund = true;
-    public float mouseSens = 100f;
-    public Transform gameCamera;
 
     private short _jumpCount = 0;
     private short _maxCountJump = 1;
@@ -61,8 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             _statusToSprint = 2;
         }
-
-        gameCamera.position += new Vector3(inputVector.x, 0f, inputVector.y ) * speed * Time.deltaTime;
+        
 
         if (onGraund)
             _jumpCount = 0;
@@ -86,22 +83,18 @@ public class PlayerController : MonoBehaviour
             if(_statusToSprint == -1)
             {
                 _playerRigidbody.AddForce(Vector3.left * 400f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(-1f, 0f, 0f) * Time.deltaTime;
             }
             if (_statusToSprint == 1)
             {
                 _playerRigidbody.AddForce(Vector3.right * 400f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(1f, 0f, 0f) * Time.deltaTime;
             }
             if (_statusToSprint == 2)
             {
                 _playerRigidbody.AddForce(Vector3.forward * 400f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(0f, 0f, 1f) * Time.deltaTime;
             }
             if (_statusToSprint == -2)
             {
                 _playerRigidbody.AddForce(Vector3.forward * -400f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(0f, 0f, 1f) * Time.deltaTime;
             }
             Debug.Log("Sprint! " + context.phase);
             speed = 5f;
@@ -118,25 +111,21 @@ public class PlayerController : MonoBehaviour
             if (_statusToSprint == -1)
             {
                 _playerRigidbody.AddForce(Vector3.left * -300f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(0.5f, 0f, 0f) * Time.deltaTime;
                 speed = 5f;
             }
             if (_statusToSprint == 1)
             {
                 _playerRigidbody.AddForce(Vector3.right * -300f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(-0.5f, 0f, 0f) * Time.deltaTime;
                 speed = 5f;
             }
             if (_statusToSprint == 2)
             {
                 _playerRigidbody.AddForce(Vector3.forward *-300f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(0f, 0f, -0.5f) * Time.deltaTime;
                 speed = 5f;
             }
             if (_statusToSprint == -2)
             {
                 _playerRigidbody.AddForce(Vector3.forward * 300f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(0f, 0f, -0.5f) * Time.deltaTime;
                 speed = 5f;
             }
         }
