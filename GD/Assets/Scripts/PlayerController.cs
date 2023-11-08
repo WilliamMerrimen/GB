@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public bool onGraund = true;
     public float mouseSens = 100f;
     public Transform gameCamera;
-    public Transform camTarget;
+    
 
     
 
@@ -41,12 +41,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
    {
-        //float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
-        //float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
-        //xRotation -= mouseY;
-        //xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        //gameCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        //_playerPosition.Rotate(Vector3.up * mouseX);
        Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
       
       _playerPosition.position += new Vector3(inputVector.x, 0 , inputVector.y) * speed * Time.deltaTime;

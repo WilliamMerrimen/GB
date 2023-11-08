@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4676897450227095751}
   m_Layer: 0
   m_Name: 2conect
-  m_TagString: Untagged
+  m_TagString: Graund
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,6 +43,10 @@ PrefabInstance:
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Name
       value: Column Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
+      propertyPath: m_TagString
+      value: Graund
       objectReference: {fileID: 0}
     - target: {fileID: 8107160976175442249, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_VersionIndex
