@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4253748, g: 0.45751464, b: 0.48297423, a: 1}
+  m_IndirectSpecularColor: {r: 0.4253757, g: 0.45751536, b: 0.48297483, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9688,7 +9688,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 64.91
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -9714,8 +9714,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.35889935, y: -0.17602392, z: 0.06911772, w: 0.9140184}
-  m_LocalPosition: {x: -16, y: 9, z: 1.5}
+  m_LocalRotation: {x: 0.3170388, y: -0.11630444, z: 0.03920838, w: 0.9404374}
+  m_LocalPosition: {x: -16.8, y: 7.98, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15791,8 +15791,8 @@ MonoBehaviour:
   m_StandbyUpdate: 1
   m_LookAt: {fileID: 1168322423}
   m_Follow: {fileID: 1168322423}
-  m_Lens:
-    FieldOfView: 60.000004
+  m_Lens
+    FieldOfView: 64.91
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -15818,14 +15818,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569598576}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.35889935, y: -0.17602392, z: 0.06911772, w: 0.9140184}
-  m_LocalPosition: {x: -16, y: 9, z: 1.5}
+  m_LocalRotation: {x: 0.3170388, y: -0.11630444, z: 0.03920838, w: 0.9404374}
+  m_LocalPosition: {x: -16.8, y: 7.98, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1803555095}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35.97, y: -14.1, z: 0}
 --- !u!1001 &1571700931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17859,10 +17859,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 2, y: 5, z: -5}
-  m_XDamping: 0
+  m_FollowOffset: {x: 1.2, y: 3.98, z: -5}
+  m_XDamping: 0.5
   m_YDamping: 0.5
-  m_ZDamping: 0
+  m_ZDamping: 0.5
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -17888,10 +17888,10 @@ MonoBehaviour:
   m_VerticalDamping: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_DeadZoneWidth: 0.05
-  m_DeadZoneHeight: 0.11
-  m_SoftZoneWidth: 0.5
-  m_SoftZoneHeight: 0.5
+  m_DeadZoneWidth: 0.187
+  m_DeadZoneHeight: 0.208
+  m_SoftZoneWidth: 0.775
+  m_SoftZoneHeight: 0.804
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 0
@@ -21418,6 +21418,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 351302788642075306, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 467477743200985012, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 467477743200985012, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
+      propertyPath: timer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 467477743200985012, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
+      propertyPath: kdSprint
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 467477743200985012, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
       propertyPath: onGraund
       value: 0
@@ -21489,6 +21505,10 @@ PrefabInstance:
     - target: {fileID: 8768618301773519492, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768618301773519492, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
+      propertyPath: m_Interpolate
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

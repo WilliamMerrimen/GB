@@ -9,10 +9,13 @@ public class PlayerController : MonoBehaviour
     private Transform _playerPosition;
     private Vector3 _inputVector;
     private int _statusToSprint;
+    private int _canToSprint;
 
     public float speed = 5f;
     public float jumpForse = 6f;
     public bool onGraund = true;
+    public float kdSprint;
+    public float timer;
 
     private short _jumpCount = 0;
     private short _maxCountJump = 1;
@@ -38,10 +41,19 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
    {
+       timer -= Time.fixedDeltaTime;
+        if(timer >= kdSprint)
+        {
+            _canToSprint = 1;
+        }
+        else
+        {
+            _canToSprint = 0;
+        }
        Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
-      
-      _playerPosition.position += new Vector3(inputVector.x, 0 , inputVector.y) * speed * Time.deltaTime;
-      
+       
+      _playerPosition.position += new Vector3(inputVector.x, 0 , inputVector.y) * speed * Time.fixedDeltaTime;
+
       if(inputVector.x == 1)
             _statusToSprint = 1;
         
@@ -76,52 +88,61 @@ public class PlayerController : MonoBehaviour
         {
             if(_statusToSprint == -1)
             {
-                _playerRigidbody.AddForce(Vector3.left * 400f * Time.deltaTime, ForceMode.Impulse);
+                if(timer <= 0f)
+                {
+                _playerRigidbody.AddForce(Vector3.left * 400f * Time.deltaTime, ForceMode.VelocityChange);
+                }
             }
             if (_statusToSprint == 1)
             {
-                _playerRigidbody.AddForce(Vector3.right * 400f * Time.deltaTime, ForceMode.Impulse);
+                if (timer <= 0f)
+                {
+                _playerRigidbody.AddForce(Vector3.right * 400f * Time.deltaTime, ForceMode.VelocityChange);
+                }
             }
             if (_statusToSprint == 2)
             {
-                _playerRigidbody.AddForce(Vector3.forward * 400f * Time.deltaTime, ForceMode.Impulse);
+                if (timer <= 0f)
+                {
+                _playerRigidbody.AddForce(Vector3.forward * 400f * Time.deltaTime, ForceMode.VelocityChange);
+                }
             }
             if (_statusToSprint == -2)
             {
-                _playerRigidbody.AddForce(Vector3.forward * -400f * Time.deltaTime, ForceMode.Impulse);
+                if (timer <= 0f)
+                {
+                _playerRigidbody.AddForce(Vector3.forward * -400f * Time.deltaTime, ForceMode.VelocityChange);
+                }
             }
             Debug.Log("Sprint! " + context.phase);
             speed = 5f;
 
 
         }
-        else if(context.performed && speed == 7f)
-        {
-            Debug.Log("Sprint! " + context.phase);
-            speed = 7f;
-        }
         else if(context.canceled)
         {
-            if (_statusToSprint == -1)
-            {
-                _playerRigidbody.AddForce(Vector3.left * -300f * Time.deltaTime, ForceMode.Impulse);
-                speed = 5f;
-            }
-            if (_statusToSprint == 1)
-            {
-                _playerRigidbody.AddForce(Vector3.right * -300f * Time.deltaTime, ForceMode.Impulse);
-                speed = 5f;
-            }
-            if (_statusToSprint == 2)
-            {
-                _playerRigidbody.AddForce(Vector3.forward *-300f * Time.deltaTime, ForceMode.Impulse);
-                speed = 5f;
-            }
-            if (_statusToSprint == -2)
-            {
-                _playerRigidbody.AddForce(Vector3.forward * 300f * Time.deltaTime, ForceMode.Impulse);
-                speed = 5f;
-            }
+            speed = 3f;
+            timer = kdSprint;
+            //            if (_statusToSprint == -1)
+            //            {
+            //                _playerRigidbody.AddForce(Vector3.left * -300f * Time.deltaTime, ForceMode.Impulse);
+            //                speed = 3f;
+            //            }
+            //            if (_statusToSprint == 1)
+            //            {
+            //                _playerRigidbody.AddForce(Vector3.right * -300f * Time.deltaTime, ForceMode.Impulse);
+            //                speed = 3f;
+            //            }
+            //            if (_statusToSprint == 2)
+            //            {
+            //                _playerRigidbody.AddForce(Vector3.forward *-300f * Time.deltaTime, ForceMode.Impulse);
+            //                speed = 3f;
+            //            }
+            //            if (_statusToSprint == -2)
+            //            {
+            //                _playerRigidbody.AddForce(Vector3.forward * 300f * Time.deltaTime, ForceMode.Impulse);
+            //                speed = 3f;
+            //            }
         }
     }
     
