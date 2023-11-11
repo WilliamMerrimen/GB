@@ -9,15 +9,18 @@ public class PlayerController : MonoBehaviour
     private PlayerInputActions _playerInputActions;
     private Transform _playerPosition;
     private Vector3 _inputVector;
+    private Vector3 _rayStart;
+    private Vector3 _rayDirection;
 
     public float speed = 5f;
     public float jumpForse = 6f;
     public bool onGraund = true;
-    public bool isLadder = false;
+    public LayerMask layerMask;
 
     private short _jumpCount = 0;
     private short _maxCountJump = 1;
     public bool isEnableDublJump = false;
+    public bool isHit = false;
 
 
 
@@ -30,24 +33,40 @@ public class PlayerController : MonoBehaviour
       _playerInputActions = new PlayerInputActions();
       _playerInputActions.Enable();
       _playerInputActions.PlayerAction.Jump.performed += Jump;
+      _rayDirection = transform.right;
    }
 
     private void FixedUpdate()
    {
        Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
-       
-       if(!isLadder) 
-           _playerPosition.position += new Vector3(inputVector.x, 0 , inputVector.y) * speed * Time.fixedDeltaTime;
+       if (!isHit)
+           _playerPosition.position += new Vector3(inputVector.x, 0, inputVector.y) * speed * Time.fixedDeltaTime;
        else
-           _playerPosition.position += new Vector3(0, (inputVector.x != 0 ? inputVector.x : inputVector.y) , 0) * speed * Time.fixedDeltaTime;
+           _playerPosition.position += new Vector3(0, Math.Abs(inputVector.x !=0 ? inputVector.x : inputVector.y), 0) * speed * Time.fixedDeltaTime;
+       Vector3 position = _playerPosition.position;
+       _rayStart = new Vector3(position.x,position.y - 0.35f, position.z);
        
+       if (inputVector.x != 0 || inputVector.y != 0)
+       {
+           if (inputVector.x == 1)
+               _rayDirection = transform.right;
+
+           else if (inputVector.x == -1)
+               _rayDirection = -transform.right;
+           
+           if (inputVector.y == 1)
+               _rayDirection = transform.forward;
+           else if (inputVector.y == -1)
+               _rayDirection = -transform.forward;
+       }
+
+
        if (onGraund)
             _jumpCount = 0;
-      if (isEnableDublJump)
+       if (isEnableDublJump)
             _maxCountJump = 2;
    }
-
-   public void Jump(InputAction.CallbackContext context)
+    public void Jump(InputAction.CallbackContext context)
    { 
       if (context.performed & _jumpCount < _maxCountJump) 
       {
@@ -77,7 +96,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Ladder"))
         {
-            isLadder = true;
+            onGraund = false;
+            isHit = true;
             _playerRigidbody.useGravity = false;
         }
     }
@@ -86,7 +106,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Ladder"))
         {
-            isLadder = false;
+            isHit = false;
             _playerRigidbody.useGravity = true;
         }
     }
