@@ -16,7 +16,9 @@ public class PlayerController : MonoBehaviour
     public float jumpForse = 6f;
     public bool onGraund = true;
     public LayerMask layerMask;
+    public string vector;
 
+    private int _vectorToClimb;
     private short _jumpCount = 0;
     private short _maxCountJump = 1;
     public bool isEnableDublJump = false;
@@ -36,29 +38,59 @@ public class PlayerController : MonoBehaviour
       _rayDirection = transform.right;
    }
 
+    private void Start()
+    {
+        
+    }
     private void FixedUpdate()
    {
-       Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
-       if (!isHit)
-           _playerPosition.position += new Vector3(inputVector.x, 0, inputVector.y) * speed * Time.fixedDeltaTime;
-       else
-           _playerPosition.position += new Vector3(0, Math.Abs(inputVector.x !=0 ? inputVector.x : inputVector.y), 0) * speed * Time.fixedDeltaTime;
-       Vector3 position = _playerPosition.position;
+        
+        Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
+        Vector3 position = _playerPosition.position;
        _rayStart = new Vector3(position.x,position.y - 0.35f, position.z);
-       
-       if (inputVector.x != 0 || inputVector.y != 0)
-       {
+        if (!isHit)
+            _playerPosition.position += new Vector3(inputVector.x, 0, inputVector.y) * speed * Time.fixedDeltaTime;
+        else
+        {
+            if (!Input.GetKey(KeyCode.LeftShift))
+            {
+                _playerPosition.position += new Vector3(inputVector.x * (speed-2), Math.Abs(inputVector.x != 0 ? inputVector.x  : inputVector.y) * speed, inputVector.y * (speed-2)) * Time.fixedDeltaTime;
+                
+            }
+            else if (Input.GetKey(KeyCode.LeftShift))
+            {
+                Debug.Log("Shift!!!");
+                _playerPosition.position -= new Vector3(0, 0.01f, 0);
+            }   
+        }
+        if (inputVector.x != 0 || inputVector.y != 0)
+        {
            if (inputVector.x == 1)
-               _rayDirection = transform.right;
-
+            {
+                _rayDirection = transform.right;
+                vector = "right";
+                _vectorToClimb = 1;
+            }
+               
            else if (inputVector.x == -1)
-               _rayDirection = -transform.right;
-           
+            {
+                _rayDirection = -transform.right;
+                vector = "left";
+                _vectorToClimb = 2;
+            }    
            if (inputVector.y == 1)
-               _rayDirection = transform.forward;
+            {
+                _rayDirection = transform.forward;
+                vector = "forward";
+                _vectorToClimb = 3;
+            }
            else if (inputVector.y == -1)
-               _rayDirection = -transform.forward;
-       }
+            {
+                _rayDirection = -transform.forward;
+                vector = "back";
+                _vectorToClimb = 4;
+            }   
+        }
 
 
        if (onGraund)
@@ -98,7 +130,9 @@ public class PlayerController : MonoBehaviour
         {
             onGraund = false;
             isHit = true;
-            _playerRigidbody.useGravity = false;
+            
+            _playerRigidbody.constraints = RigidbodyConstraints.FreezePositionY;
+            
         }
     }
 
@@ -108,6 +142,8 @@ public class PlayerController : MonoBehaviour
         {
             isHit = false;
             _playerRigidbody.useGravity = true;
+            _playerRigidbody.constraints = RigidbodyConstraints.None;
+            _playerRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
 }
