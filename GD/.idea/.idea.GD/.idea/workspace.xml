@@ -23,9 +23,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/LadderBlock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/LadderBlock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +93,7 @@
       <workItem from="1699146053858" duration="5953000" />
       <workItem from="1699228202383" duration="12679000" />
       <workItem from="1699612252625" duration="4220000" />
-      <workItem from="1699676935622" duration="12692000" />
+      <workItem from="1699676935622" duration="18513000" />
     </task>
     <servers />
   </component>

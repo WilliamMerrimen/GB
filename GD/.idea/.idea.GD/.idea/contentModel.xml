@@ -8,6 +8,28 @@
         <e p="InputSystems" t="Include">
           <e p="PlayerInputActions.cs" t="Include" />
         </e>
+        <e p="LowPolyWater_Pack" t="Include">
+          <e p="_Demo" t="Include" />
+          <e p="Animation" t="Include" />
+          <e p="Documentation" t="Include" />
+          <e p="LowPoly Island" t="Include">
+            <e p="Credits.txt" t="Include" />
+            <e p="Materials" t="Include" />
+            <e p="Textures" t="Include" />
+          </e>
+          <e p="Materials" t="Include" />
+          <e p="Plane Meshes" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="Editor" t="Include">
+              <e p="GeneratePlane.cs" t="Include" />
+            </e>
+            <e p="LowPolyWater.cs" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="WaterShaded.shader" t="Include" />
+          </e>
+          <e p="Textures" t="Include" />
+        </e>
         <e p="Material" t="Include" />
         <e p="Prefabs" t="Include" />
         <e p="Scenes" t="Include" />

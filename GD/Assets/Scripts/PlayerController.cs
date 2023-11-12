@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
                 _playerPosition.position += new Vector3(inputVector.x * (speed-2), Math.Abs(inputVector.x != 0 ? inputVector.x  : inputVector.y) * speed, inputVector.y * (speed-2)) * Time.fixedDeltaTime;
                 
             }
-            else if (Input.GetKey(KeyCode.LeftShift))
+            else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
             {
                 Debug.Log("Shift!!!");
                 _playerPosition.position -= new Vector3(0, 0.01f, 0);
@@ -128,11 +128,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Ladder"))
         {
+            
             onGraund = false;
             isHit = true;
-            
             _playerRigidbody.constraints = RigidbodyConstraints.FreezePositionY;
-            
+            _playerRigidbody.freezeRotation = true;
         }
     }
 
