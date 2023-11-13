@@ -25963,6 +25963,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 467477743200985012, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 2100000, guid: c24b404c4a937324f80b4218bc8295f0, type: 2}
+    - target: {fileID: 467477743200985012, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
       propertyPath: onGraund
       value: 1
       objectReference: {fileID: 0}
@@ -25975,6 +25979,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194228}
     - target: {fileID: 467477743200985012, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
+      propertyPath: kdInvisible
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 467477743200985012, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
+      propertyPath: delayToInvis
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 467477743200985012, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
+      propertyPath: timerToInvis
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 467477743200985012, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
+      propertyPath: materialVisible
+      value: 
+      objectReference: {fileID: 2100000, guid: 1b3bac12ae03bef4dab79581cf61c729, type: 2}
+    - target: {fileID: 467477743200985012, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
       propertyPath: isEnableDublJump
       value: 1
       objectReference: {fileID: 0}
@@ -25982,6 +26002,10 @@ PrefabInstance:
       propertyPath: layerMask.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 467477743200985012, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
+      propertyPath: materialInvisible
+      value: 
+      objectReference: {fileID: 2100000, guid: b237109ab2028fe4c923c30a3ac38ab5, type: 2}
     - target: {fileID: 1164312191830865252, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
       propertyPath: m_Name
       value: Player
@@ -26042,6 +26066,14 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8772813107435752903, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772813107435752903, guid: 4845d5d8b48f91143a9e754d919b0902, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1b3bac12ae03bef4dab79581cf61c729, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
