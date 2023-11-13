@@ -3,6 +3,8 @@
   <component name="ContentModelUserStore">
     <attachedFolders />
     <explicitIncludes>
+      <Path>Assets</Path>
+      <Path>Library/PackageCache/com.unity.cinemachine@2.9.7</Path>
       <Path>Library/PackageCache/com.unity.collab-proxy@2.2.0</Path>
       <Path>Library/PackageCache/com.unity.editorcoroutines@1.0.0</Path>
       <Path>Library/PackageCache/com.unity.ext.nunit@1.0.6</Path>
@@ -13,6 +15,7 @@
       <Path>Library/PackageCache/com.unity.performance.profile-analyzer@1.2.2</Path>
       <Path>Library/PackageCache/com.unity.probuilder@5.1.1</Path>
       <Path>Library/PackageCache/com.unity.progrids@3.0.3-preview.6</Path>
+      <Path>Library/PackageCache/com.unity.recorder@4.0.2</Path>
       <Path>Library/PackageCache/com.unity.settings-manager@2.0.1</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.1.33</Path>
       <Path>Library/PackageCache/com.unity.testtools.codecoverage@1.2.4</Path>
@@ -25,6 +28,7 @@
     <explicitExcludes>
       <Path>.idea</Path>
       <Path>Logs</Path>
+      <Path>Recordings</Path>
       <Path>Temp</Path>
       <Path>UserSettings</Path>
       <Path>obj</Path>

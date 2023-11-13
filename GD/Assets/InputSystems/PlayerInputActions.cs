@@ -46,9 +46,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Sprint"",
+                    ""name"": ""Skill"",
                     ""type"": ""Button"",
-                    ""id"": ""4b320d38-772b-4dca-930c-3ae75ac40d59"",
+                    ""id"": ""946ca479-55a2-47fe-b7a1-ba39f7004388"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InteractionButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""67442682-7114-4847-8784-93b82ea63987"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -124,12 +133,23 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8d312f64-748c-41c1-a809-66e10f438776"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""id"": ""9ea19804-a0c7-454f-b2ce-d96f84aa1386"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Sprint"",
+                    ""action"": ""Skill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3cccd1f8-a2a4-44a9-a83e-fdeec613ff93"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InteractionButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -142,7 +162,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_PlayerAction = asset.FindActionMap("PlayerAction", throwIfNotFound: true);
         m_PlayerAction_Jump = m_PlayerAction.FindAction("Jump", throwIfNotFound: true);
         m_PlayerAction_Movement = m_PlayerAction.FindAction("Movement", throwIfNotFound: true);
-        m_PlayerAction_Sprint = m_PlayerAction.FindAction("Sprint", throwIfNotFound: true);
+        m_PlayerAction_Skill = m_PlayerAction.FindAction("Skill", throwIfNotFound: true);
+        m_PlayerAction_InteractionButton = m_PlayerAction.FindAction("InteractionButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -206,14 +227,16 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private List<IPlayerActionActions> m_PlayerActionActionsCallbackInterfaces = new List<IPlayerActionActions>();
     private readonly InputAction m_PlayerAction_Jump;
     private readonly InputAction m_PlayerAction_Movement;
-    private readonly InputAction m_PlayerAction_Sprint;
+    private readonly InputAction m_PlayerAction_Skill;
+    private readonly InputAction m_PlayerAction_InteractionButton;
     public struct PlayerActionActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActionActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_PlayerAction_Jump;
         public InputAction @Movement => m_Wrapper.m_PlayerAction_Movement;
-        public InputAction @Sprint => m_Wrapper.m_PlayerAction_Sprint;
+        public InputAction @Skill => m_Wrapper.m_PlayerAction_Skill;
+        public InputAction @InteractionButton => m_Wrapper.m_PlayerAction_InteractionButton;
         public InputActionMap Get() { return m_Wrapper.m_PlayerAction; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -229,9 +252,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
-            @Sprint.started += instance.OnSprint;
-            @Sprint.performed += instance.OnSprint;
-            @Sprint.canceled += instance.OnSprint;
+            @Skill.started += instance.OnSkill;
+            @Skill.performed += instance.OnSkill;
+            @Skill.canceled += instance.OnSkill;
+            @InteractionButton.started += instance.OnInteractionButton;
+            @InteractionButton.performed += instance.OnInteractionButton;
+            @InteractionButton.canceled += instance.OnInteractionButton;
         }
 
         private void UnregisterCallbacks(IPlayerActionActions instance)
@@ -242,9 +268,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
-            @Sprint.started -= instance.OnSprint;
-            @Sprint.performed -= instance.OnSprint;
-            @Sprint.canceled -= instance.OnSprint;
+            @Skill.started -= instance.OnSkill;
+            @Skill.performed -= instance.OnSkill;
+            @Skill.canceled -= instance.OnSkill;
+            @InteractionButton.started -= instance.OnInteractionButton;
+            @InteractionButton.performed -= instance.OnInteractionButton;
+            @InteractionButton.canceled -= instance.OnInteractionButton;
         }
 
         public void RemoveCallbacks(IPlayerActionActions instance)
@@ -266,6 +295,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
-        void OnSprint(InputAction.CallbackContext context);
+        void OnSkill(InputAction.CallbackContext context);
+        void OnInteractionButton(InputAction.CallbackContext context);
     }
 }

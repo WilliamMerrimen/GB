@@ -1,160 +1,168 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody _playerRigidbody;
     private PlayerInput _playerInput;
     private PlayerInputActions _playerInputActions;
     private Transform _playerPosition;
-    private Vector3 inputVector;
-    private int _statusToSprint;
+    private Vector3 _inputVector;
+    private Vector3 _rayStart;
+    private Vector3 _rayDirection;
 
     public float speed = 5f;
     public float jumpForse = 6f;
     public bool onGraund = true;
-    public float mouseSens = 100f;
-    public Transform gameCamera;
+    public string vector;
+    public Material materialVisible;
+    public Material materialInvisible;
+    public float delayToInvis;
+    public float kdInvisible;
+    public bool invisible = false;
+    public bool canToInvis = true;
+    public GameObject teleportMenu;
+    public GameObject tipPressE;
 
+    private bool _teleportMenuCunOpen = false;
+    private MeshRenderer meshRenderer;
     private short _jumpCount = 0;
     private short _maxCountJump = 1;
     public bool isEnableDublJump = false;
+    public bool isHit = false;
 
-
-
-    private void Awake()
-   {
-      _playerRigidbody = GetComponent<Rigidbody>();
-      _playerInput = GetComponent<PlayerInput>();
-      _playerPosition = GetComponent<Transform>();
-      
-      _playerInputActions = new PlayerInputActions();
-      _playerInputActions.Enable();
-      _playerInputActions.PlayerAction.Jump.performed += Jump;
-      _playerInputActions.PlayerAction.Sprint.started += Sprint;
-      _playerInputActions.PlayerAction.Sprint.performed += Sprint;
-      _playerInputActions.PlayerAction.Sprint.canceled += Sprint;
-    }
 
     
+    private void Awake()
+    {
+        meshRenderer = gameObject.GetComponent<MeshRenderer>();
+        _playerRigidbody = GetComponent<Rigidbody>();
+        _playerInput = GetComponent<PlayerInput>();
+        _playerPosition = GetComponent<Transform>();
+        _playerInputActions = new PlayerInputActions();
+        _playerInputActions.Enable();
+        _playerInputActions.PlayerAction.Jump.performed += Jump;
+        _playerInputActions.PlayerAction.Skill.performed += Skill;
+        _playerInputActions.PlayerAction.InteractionButton.performed += InteractionButton;
+        _rayDirection = transform.right;
+    }
 
     private void FixedUpdate()
-   {
-       Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
-      
-      _playerPosition.position += new Vector3(inputVector.x, 0 , inputVector.y) * speed * Time.deltaTime;
-        if(inputVector.x == 1)
+    {
+        if(_teleportMenuCunOpen == false)
+            teleportMenu.SetActive(false);
+        
+        if (invisible & canToInvis)
         {
-            _statusToSprint = 1;
+            meshRenderer.material = materialInvisible;
+            StartCoroutine(WaitForInvOne());
         }
-        else if(inputVector.x == -1)
+        
+        else if (invisible == false)
+            meshRenderer.material = materialVisible;
+        
+        Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
+        
+        if (!isHit)
+            _playerPosition.position += new Vector3(inputVector.x, 0, inputVector.y) * speed * Time.fixedDeltaTime;
+        
+        else
         {
-            _statusToSprint = -1;
+            if (!Input.GetKey(KeyCode.LeftShift))
+                _playerPosition.position += new Vector3(inputVector.x * (speed-2), Math.Abs(inputVector.x != 0 ? inputVector.x  : inputVector.y) * speed, inputVector.y * (speed-2)) * Time.fixedDeltaTime;
+                
+            else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
+            {
+                Debug.Log("Shift!!!");
+                _playerPosition.position -= new Vector3(0, 0.01f, 0);
+            } 
         }
-        else if (inputVector.y == -1)
-        {
-            _statusToSprint = -2;
-        }
-        else if (inputVector.y == 1)
-        {
-            _statusToSprint = 2;
-        }
-
-        gameCamera.position += new Vector3(inputVector.x, 0f, inputVector.y ) * speed * Time.deltaTime;
-
+        
         if (onGraund)
             _jumpCount = 0;
+        
         if (isEnableDublJump)
             _maxCountJump = 2;
-   }
+    }
+    private IEnumerator WaitForInvOne()
+    {
+        yield return new WaitForSeconds(delayToInvis);
+        invisible = false;
+        canToInvis = false;
+        StartCoroutine(KDInvisible());
+    }
+    
+    private IEnumerator KDInvisible()
+    {
+        yield return new WaitForSeconds(kdInvisible);
+        canToInvis = true;
+    }
 
-   public void Jump(InputAction.CallbackContext context)
-   {
-       if (context.performed & _jumpCount < _maxCountJump) 
+    public void Jump(InputAction.CallbackContext context)
+    { 
+      if (context.performed & _jumpCount < _maxCountJump) 
       {
          _playerRigidbody.AddForce(Vector3.up * jumpForse, ForceMode.Impulse);
          Debug.Log("Jump! " + context.phase);
          _jumpCount += 1;
+         onGraund = false;
       }
-   }
-    public void Sprint(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            if(_statusToSprint == -1)
-            {
-                _playerRigidbody.AddForce(Vector3.left * 400f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(-1f, 0f, 0f) * Time.deltaTime;
-            }
-            if (_statusToSprint == 1)
-            {
-                _playerRigidbody.AddForce(Vector3.right * 400f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(1f, 0f, 0f) * Time.deltaTime;
-            }
-            if (_statusToSprint == 2)
-            {
-                _playerRigidbody.AddForce(Vector3.forward * 400f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(0f, 0f, 1f) * Time.deltaTime;
-            }
-            if (_statusToSprint == -2)
-            {
-                _playerRigidbody.AddForce(Vector3.forward * -400f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(0f, 0f, 1f) * Time.deltaTime;
-            }
-            Debug.Log("Sprint! " + context.phase);
-            speed = 5f;
-
-
-        }
-        else if(context.performed && speed == 7f)
-        {
-            Debug.Log("Sprint! " + context.phase);
-            speed = 7f;
-        }
-        else if(context.canceled)
-        {
-            if (_statusToSprint == -1)
-            {
-                _playerRigidbody.AddForce(Vector3.left * -300f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(0.5f, 0f, 0f) * Time.deltaTime;
-                speed = 5f;
-            }
-            if (_statusToSprint == 1)
-            {
-                _playerRigidbody.AddForce(Vector3.right * -300f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(-0.5f, 0f, 0f) * Time.deltaTime;
-                speed = 5f;
-            }
-            if (_statusToSprint == 2)
-            {
-                _playerRigidbody.AddForce(Vector3.forward *-300f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(0f, 0f, -0.5f) * Time.deltaTime;
-                speed = 5f;
-            }
-            if (_statusToSprint == -2)
-            {
-                _playerRigidbody.AddForce(Vector3.forward * 300f * Time.deltaTime, ForceMode.Impulse);
-                gameCamera.position += new Vector3(0f, 0f, -0.5f) * Time.deltaTime;
-                speed = 5f;
-            }
-        }
     }
     
-    public void OnTriggerEnter(Collider other)
+    public void Skill(InputAction.CallbackContext context)
     {
-        if(other.tag == "Graund")
-        {
+        if (context.performed)
+            invisible = true;
+        
+    }
+    public void InteractionButton(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            if (_teleportMenuCunOpen)
+                teleportMenu.SetActive(true);
+    }
+    
+    public void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.CompareTag("Graund"))
             onGraund = true;
+        
+        if (other.collider.CompareTag("Teleport"))
+        {
+            _teleportMenuCunOpen = true;
+            tipPressE.SetActive(true);
         }
     }
-    public void OnTriggerExit(Collider other)
+   
+    public void OnCollisionExit(Collision other)
     {
-        if (other.tag == "Graund")
+        if (other.collider.CompareTag("Teleport"))
+        {
+            _teleportMenuCunOpen = false;
+            tipPressE.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ladder"))
         {
             onGraund = false;
-            _jumpCount += 1;
+            isHit = true;
+            _playerRigidbody.constraints = RigidbodyConstraints.FreezePositionY;
+            _playerRigidbody.freezeRotation = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            isHit = false;
+            _playerRigidbody.useGravity = true;
+            _playerRigidbody.constraints = RigidbodyConstraints.None;
+            _playerRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
 }

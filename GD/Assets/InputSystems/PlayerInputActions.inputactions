@@ -24,9 +24,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Sprint",
+                    "name": "Skill",
                     "type": "Button",
-                    "id": "4b320d38-772b-4dca-930c-3ae75ac40d59",
+                    "id": "946ca479-55a2-47fe-b7a1-ba39f7004388",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "InteractionButton",
+                    "type": "Button",
+                    "id": "67442682-7114-4847-8784-93b82ea63987",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -102,12 +111,23 @@
                 },
                 {
                     "name": "",
-                    "id": "8d312f64-748c-41c1-a809-66e10f438776",
-                    "path": "<Keyboard>/shift",
+                    "id": "9ea19804-a0c7-454f-b2ce-d96f84aa1386",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Sprint",
+                    "action": "Skill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3cccd1f8-a2a4-44a9-a83e-fdeec613ff93",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InteractionButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
