@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public float delayToInvis;
     public float kdInvisible;
     public bool invisible = false;
-    public bool cunToInvis = true;
+    public bool canToInvis = true;
     public GameObject teleportMenu;
     public GameObject tipPressE;
 
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         {
             teleportMenu.SetActive(false);
         }
-        if (invisible & cunToInvis)
+        if (invisible & canToInvis)
         {
             meshRenderer.material = materialInvisible;
             StartCoroutine(WaitForInvOne());
@@ -92,13 +92,13 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(delayToInvis);
         invisible = false;
-        cunToInvis = false;
+        canToInvis = false;
         StartCoroutine(KDInvisible());
     }
     private IEnumerator KDInvisible()
     {
         yield return new WaitForSeconds(kdInvisible);
-        cunToInvis = true;
+        canToInvis = true;
     }
 
     public void Jump(InputAction.CallbackContext context)

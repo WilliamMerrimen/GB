@@ -8,6 +8,9 @@
         <e p="InputSystems" t="Include">
           <e p="PlayerInputActions.cs" t="Include" />
         </e>
+        <e p="Low Poly Water" t="Include">
+          <e p="Plane Meshes" t="Include" />
+        </e>
         <e p="LowPolyWater_Pack" t="Include">
           <e p="_Demo" t="Include" />
           <e p="Animation" t="Include" />
@@ -36,6 +39,7 @@
         <e p="Scripts" t="Include">
           <e p="Ladder.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
+          <e p="Teleport.cs" t="Include" />
         </e>
       </e>
       <e p="Cinemachine.csproj" t="IncludeRecursive" />
