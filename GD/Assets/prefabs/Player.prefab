@@ -125,7 +125,20 @@ MonoBehaviour:
   speed: 5
   jumpForse: 6
   onGraund: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  vector: 
+  materialVisible: {fileID: 0}
+  materialInvisible: {fileID: 0}
+  delayToInvis: 0
+  kdInvisible: 0
+  invisible: 0
+  canToInvis: 1
+  teleportMenu: {fileID: 0}
+  tipPressE: {fileID: 0}
   isEnableDublJump: 0
+  isHit: 0
 --- !u!114 &6770444547537457735
 MonoBehaviour:
   m_ObjectHideFlags: 0

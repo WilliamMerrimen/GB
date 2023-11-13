@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
     public float jumpForse = 6f;
     public bool onGraund = true;
-    public LayerMask layerMask;
     public string vector;
     public Material materialVisible;
     public Material materialInvisible;
@@ -52,40 +51,38 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         if(_teleportMenuCunOpen == false)
-        {
             teleportMenu.SetActive(false);
-        }
+        
         if (invisible & canToInvis)
         {
             meshRenderer.material = materialInvisible;
             StartCoroutine(WaitForInvOne());
-            
         }
+        
         else if (invisible == false)
-        {
             meshRenderer.material = materialVisible;
-        }
+        
         Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
-        Vector3 position = _playerPosition.position;
-       _rayStart = new Vector3(position.x,position.y - 0.35f, position.z);
+        
         if (!isHit)
             _playerPosition.position += new Vector3(inputVector.x, 0, inputVector.y) * speed * Time.fixedDeltaTime;
+        
         else
         {
             if (!Input.GetKey(KeyCode.LeftShift))
-            {
                 _playerPosition.position += new Vector3(inputVector.x * (speed-2), Math.Abs(inputVector.x != 0 ? inputVector.x  : inputVector.y) * speed, inputVector.y * (speed-2)) * Time.fixedDeltaTime;
                 
-            }
             else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
             {
                 Debug.Log("Shift!!!");
                 _playerPosition.position -= new Vector3(0, 0.01f, 0);
-            }   
+            } 
         }
-       if (onGraund)
+        
+        if (onGraund)
             _jumpCount = 0;
-       if (isEnableDublJump)
+        
+        if (isEnableDublJump)
             _maxCountJump = 2;
     }
     private IEnumerator WaitForInvOne()
@@ -95,6 +92,7 @@ public class PlayerController : MonoBehaviour
         canToInvis = false;
         StartCoroutine(KDInvisible());
     }
+    
     private IEnumerator KDInvisible()
     {
         yield return new WaitForSeconds(kdInvisible);
@@ -108,33 +106,28 @@ public class PlayerController : MonoBehaviour
          _playerRigidbody.AddForce(Vector3.up * jumpForse, ForceMode.Impulse);
          Debug.Log("Jump! " + context.phase);
          _jumpCount += 1;
+         onGraund = false;
       }
     }
+    
     public void Skill(InputAction.CallbackContext context)
     {
         if (context.performed)
-        {
             invisible = true;
-        }
+        
     }
     public void InteractionButton(InputAction.CallbackContext context)
     {
         if (context.performed)
-        {
             if (_teleportMenuCunOpen)
-            {
                 teleportMenu.SetActive(true);
-            }
-        }
     }
-
-
-
-
+    
     public void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.layer == layerMask.value)
+        if(other.gameObject.CompareTag("Graund"))
             onGraund = true;
+        
         if (other.collider.CompareTag("Teleport"))
         {
             _teleportMenuCunOpen = true;
@@ -144,11 +137,6 @@ public class PlayerController : MonoBehaviour
    
     public void OnCollisionExit(Collision other)
     {
-        if (other.gameObject.layer == layerMask.value)
-        {
-            onGraund = false;
-            _jumpCount += 1;
-        }
         if (other.collider.CompareTag("Teleport"))
         {
             _teleportMenuCunOpen = false;
@@ -165,7 +153,6 @@ public class PlayerController : MonoBehaviour
             _playerRigidbody.constraints = RigidbodyConstraints.FreezePositionY;
             _playerRigidbody.freezeRotation = true;
         }
-        
     }
 
     private void OnTriggerExit(Collider other)
@@ -178,5 +165,4 @@ public class PlayerController : MonoBehaviour
             _playerRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
-    
 }
