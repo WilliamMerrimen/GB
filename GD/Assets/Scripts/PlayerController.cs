@@ -23,7 +23,10 @@ public class PlayerController : MonoBehaviour
     public float kdInvisible;
     public bool invisible = false;
     public bool cunToInvis = true;
+    public GameObject teleportMenu;
+    public GameObject tipPressE;
 
+    private bool _teleportMenuCunOpen = false;
     private MeshRenderer meshRenderer;
     private short _jumpCount = 0;
     private short _maxCountJump = 1;
@@ -42,11 +45,16 @@ public class PlayerController : MonoBehaviour
         _playerInputActions.Enable();
         _playerInputActions.PlayerAction.Jump.performed += Jump;
         _playerInputActions.PlayerAction.Skill.performed += Skill;
+        _playerInputActions.PlayerAction.InteractionButton.performed += InteractionButton;
         _rayDirection = transform.right;
     }
 
     private void FixedUpdate()
     {
+        if(_teleportMenuCunOpen == false)
+        {
+            teleportMenu.SetActive(false);
+        }
         if (invisible & cunToInvis)
         {
             meshRenderer.material = materialInvisible;
@@ -109,13 +117,29 @@ public class PlayerController : MonoBehaviour
             invisible = true;
         }
     }
-    
-   
-   public void OnCollisionEnter(Collision other)
+    public void InteractionButton(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (_teleportMenuCunOpen)
+            {
+                teleportMenu.SetActive(true);
+            }
+        }
+    }
+
+
+
+
+    public void OnCollisionEnter(Collision other)
     {
         if(other.collider.CompareTag("Graund"))
             onGraund = true;
-        
+        if (other.collider.CompareTag("Teleport"))
+        {
+            _teleportMenuCunOpen = true;
+            tipPressE.SetActive(true);
+        }
     }
    
     public void OnCollisionExit(Collision other)
@@ -125,18 +149,23 @@ public class PlayerController : MonoBehaviour
             onGraund = false;
             _jumpCount += 1;
         }
+        if (other.collider.CompareTag("Teleport"))
+        {
+            _teleportMenuCunOpen = false;
+            tipPressE.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ladder"))
         {
-            
             onGraund = false;
             isHit = true;
             _playerRigidbody.constraints = RigidbodyConstraints.FreezePositionY;
             _playerRigidbody.freezeRotation = true;
         }
+        
     }
 
     private void OnTriggerExit(Collider other)

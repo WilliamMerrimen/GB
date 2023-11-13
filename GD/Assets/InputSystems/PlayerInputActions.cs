@@ -53,6 +53,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InteractionButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""67442682-7114-4847-8784-93b82ea63987"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3cccd1f8-a2a4-44a9-a83e-fdeec613ff93"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InteractionButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_PlayerAction_Jump = m_PlayerAction.FindAction("Jump", throwIfNotFound: true);
         m_PlayerAction_Movement = m_PlayerAction.FindAction("Movement", throwIfNotFound: true);
         m_PlayerAction_Skill = m_PlayerAction.FindAction("Skill", throwIfNotFound: true);
+        m_PlayerAction_InteractionButton = m_PlayerAction.FindAction("InteractionButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +228,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerAction_Jump;
     private readonly InputAction m_PlayerAction_Movement;
     private readonly InputAction m_PlayerAction_Skill;
+    private readonly InputAction m_PlayerAction_InteractionButton;
     public struct PlayerActionActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -214,6 +236,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerAction_Jump;
         public InputAction @Movement => m_Wrapper.m_PlayerAction_Movement;
         public InputAction @Skill => m_Wrapper.m_PlayerAction_Skill;
+        public InputAction @InteractionButton => m_Wrapper.m_PlayerAction_InteractionButton;
         public InputActionMap Get() { return m_Wrapper.m_PlayerAction; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +255,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Skill.started += instance.OnSkill;
             @Skill.performed += instance.OnSkill;
             @Skill.canceled += instance.OnSkill;
+            @InteractionButton.started += instance.OnInteractionButton;
+            @InteractionButton.performed += instance.OnInteractionButton;
+            @InteractionButton.canceled += instance.OnInteractionButton;
         }
 
         private void UnregisterCallbacks(IPlayerActionActions instance)
@@ -245,6 +271,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Skill.started -= instance.OnSkill;
             @Skill.performed -= instance.OnSkill;
             @Skill.canceled -= instance.OnSkill;
+            @InteractionButton.started -= instance.OnInteractionButton;
+            @InteractionButton.performed -= instance.OnInteractionButton;
+            @InteractionButton.canceled -= instance.OnInteractionButton;
         }
 
         public void RemoveCallbacks(IPlayerActionActions instance)
@@ -267,5 +296,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnSkill(InputAction.CallbackContext context);
+        void OnInteractionButton(InputAction.CallbackContext context);
     }
 }
