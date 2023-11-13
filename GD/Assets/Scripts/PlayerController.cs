@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionEnter(Collision other)
     {
-        if(other.collider.CompareTag("Graund"))
+        if(other.gameObject.layer == layerMask.value)
             onGraund = true;
         if (other.collider.CompareTag("Teleport"))
         {
@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
    
     public void OnCollisionExit(Collision other)
     {
-        if (other.collider.CompareTag("Graund"))
+        if (other.gameObject.layer == layerMask.value)
         {
             onGraund = false;
             _jumpCount += 1;
@@ -178,4 +178,5 @@ public class PlayerController : MonoBehaviour
             _playerRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
+    
 }
