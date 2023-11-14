@@ -7,6 +7,9 @@ TagManager:
   - Graund
   - Ladder
   - Teleport
+  - Key
+  - NextLevel
+  - Chest
   layers:
   - Default
   - TransparentFX
