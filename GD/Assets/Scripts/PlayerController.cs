@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _rayStart;
     private Vector3 _rayDirection;
 
+    public Transform playerPos;
     public float speed = 5f;
     public float jumpForse = 6f;
     public bool onGraund = true;
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
     public bool isEnableDublJump = false;
     public bool isHit = false;
 
-
+    public int Money = 0;
     
     private void Awake()
     {
@@ -71,12 +72,12 @@ public class PlayerController : MonoBehaviour
         {
             if (!Input.GetKey(KeyCode.LeftShift))
                 _playerPosition.position += new Vector3(inputVector.x * (speed-2), Math.Abs(inputVector.x != 0 ? inputVector.x  : inputVector.y) * speed, inputVector.y * (speed-2)) * Time.fixedDeltaTime;
-                
+            }
             else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
             {
                 Debug.Log("Shift!!!");
-                _playerPosition.position -= new Vector3(0, 0.01f, 0);
-            } 
+                _playerPosition.position -= new Vector3(0, 0.01f, 0) * Time.fixedDeltaTime;
+            }   
         }
         
         if (onGraund)
@@ -84,6 +85,7 @@ public class PlayerController : MonoBehaviour
         
         if (isEnableDublJump)
             _maxCountJump = 2;
+        playerPos = _playerPosition;
     }
     private IEnumerator WaitForInvOne()
     {
@@ -122,7 +124,6 @@ public class PlayerController : MonoBehaviour
             if (_teleportMenuCunOpen)
                 teleportMenu.SetActive(true);
     }
-    
     public void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Graund"))
@@ -134,7 +135,6 @@ public class PlayerController : MonoBehaviour
             tipPressE.SetActive(true);
         }
     }
-   
     public void OnCollisionExit(Collision other)
     {
         if (other.collider.CompareTag("Teleport"))
@@ -143,7 +143,6 @@ public class PlayerController : MonoBehaviour
             tipPressE.SetActive(false);
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ladder"))
@@ -154,7 +153,6 @@ public class PlayerController : MonoBehaviour
             _playerRigidbody.freezeRotation = true;
         }
     }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Ladder"))
