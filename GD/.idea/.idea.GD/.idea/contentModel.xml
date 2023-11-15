@@ -8,6 +8,15 @@
         <e p="InputSystems" t="Include">
           <e p="PlayerInputActions.cs" t="Include" />
         </e>
+        <e p="Kenney Assets" t="Include">
+          <e p="Nature Kit" t="Include">
+            <e p="Models" t="Include">
+              <e p="FBX format" t="Include">
+                <e p="Materials" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Low Poly Water" t="Include">
           <e p="Plane Meshes" t="Include" />
         </e>
@@ -37,6 +46,8 @@
         <e p="Prefabs" t="Include" />
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="chestOpen.cs" t="Include" />
+          <e p="dropedItemFhis.cs" t="Include" />
           <e p="Ladder.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="Teleport.cs" t="Include" />
