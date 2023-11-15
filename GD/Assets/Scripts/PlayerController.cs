@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
     private PlayerInputActions _playerInputActions;
     private Transform _playerPosition;
     private Vector3 _inputVector;
-    private Vector3 _rayStart;
-    private Vector3 _rayDirection;
 
     public Transform playerPos;
     public float speed = 5f;
@@ -23,21 +21,26 @@ public class PlayerController : MonoBehaviour
     public float kdInvisible;
     public bool invisible = false;
     public bool canToInvis = true;
+    private bool _isChest = false;
+    
     public GameObject teleportMenu;
     public GameObject tipPressE;
+    public GameObject nextLevel;
 
     private bool _teleportMenuCunOpen = false;
-    private MeshRenderer meshRenderer;
+    private MeshRenderer _meshRenderer;
     private short _jumpCount = 0;
     private short _maxCountJump = 1;
     public bool isEnableDublJump = false;
     public bool isHit = false;
+    private bool _hasKey = false;
+
 
     public int Money = 0;
     
     private void Awake()
     {
-        meshRenderer = gameObject.GetComponent<MeshRenderer>();
+        _meshRenderer = gameObject.GetComponent<MeshRenderer>();
         _playerRigidbody = GetComponent<Rigidbody>();
         _playerInput = GetComponent<PlayerInput>();
         _playerPosition = GetComponent<Transform>();
@@ -46,7 +49,8 @@ public class PlayerController : MonoBehaviour
         _playerInputActions.PlayerAction.Jump.performed += Jump;
         _playerInputActions.PlayerAction.Skill.performed += Skill;
         _playerInputActions.PlayerAction.InteractionButton.performed += InteractionButton;
-        _rayDirection = transform.right;
+        
+        nextLevel.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -56,12 +60,12 @@ public class PlayerController : MonoBehaviour
         
         if (invisible & canToInvis)
         {
-            meshRenderer.material = materialInvisible;
+            _meshRenderer.material = materialInvisible;
             StartCoroutine(WaitForInvOne());
         }
         
         else if (invisible == false)
-            meshRenderer.material = materialVisible;
+            _meshRenderer.material = materialVisible;
         
         Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
         
@@ -122,8 +126,15 @@ public class PlayerController : MonoBehaviour
     public void InteractionButton(InputAction.CallbackContext context)
     {
         if (context.performed)
+        {
             if (_teleportMenuCunOpen)
                 teleportMenu.SetActive(true);
+            if (_isChest)
+            {
+                Debug.Log("Chest opened!");
+            }
+        }
+        
     }
     public void OnCollisionEnter(Collision other)
     {
@@ -135,6 +146,15 @@ public class PlayerController : MonoBehaviour
             _teleportMenuCunOpen = true;
             tipPressE.SetActive(true);
         }
+
+        if (other.collider.CompareTag("NextLevel") && _hasKey)
+            nextLevel.SetActive(true);
+
+        if (other.collider.CompareTag("Chest"))
+        {
+            tipPressE.SetActive(true);
+            _isChest = true;
+        }
     }
     public void OnCollisionExit(Collision other)
     {
@@ -143,6 +163,15 @@ public class PlayerController : MonoBehaviour
             _teleportMenuCunOpen = false;
             tipPressE.SetActive(false);
         }
+
+        if (other.collider.CompareTag("Chest"))
+        {
+            tipPressE.SetActive(false);
+            _isChest = false;
+        }
+        
+        if (other.collider.CompareTag("NextLevel"))
+            nextLevel.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -152,6 +181,13 @@ public class PlayerController : MonoBehaviour
             isHit = true;
             _playerRigidbody.constraints = RigidbodyConstraints.FreezePositionY;
             _playerRigidbody.freezeRotation = true;
+        }
+
+        if (other.CompareTag("Key"))
+        {
+            _hasKey = true;
+            Debug.Log("Has Key!");
+            Destroy(other.gameObject);
         }
     }
     private void OnTriggerExit(Collider other)
