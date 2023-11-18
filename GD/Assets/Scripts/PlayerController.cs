@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
             else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
             {
                 Debug.Log("Shift!!!");
-                _playerPosition.position -= new Vector3(0, 0.01f, 0) * Time.fixedDeltaTime;
+                _playerPosition.position -= new Vector3(0, 1.5f, 0) * Time.fixedDeltaTime;
             }   
         }
         
