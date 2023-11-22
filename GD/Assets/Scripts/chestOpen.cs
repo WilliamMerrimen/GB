@@ -12,7 +12,9 @@ public class chestOpen : MonoBehaviour
     public Transform pointSpawn;
     public GameObject[] CheckPlayer;
     public PlayerController scriptToCheckPlayer;
+    public int moneyInChest;
 
+    private int clickOnChest = 0;
     private float _distance;
     private PlayerInput _playerInput;
     private PlayerInputActions _playerInputActions;
@@ -25,30 +27,38 @@ public class chestOpen : MonoBehaviour
         _playerInputActions.Enable();
         _playerInputActions.PlayerAction.InteractionButton.performed += InteractionButton;
     }
-    private void FixedUpdate()
-    {
-        _distance = Mathf.Round(Vector3.Distance(player.transform.position, gameObject.transform.position));
-        if(_distance <= distanceToOpen)
-        {
-            cunOpenChest = true;
-            scriptToCheckPlayer.tipPressE.SetActive(true);
-        }
-        if (_distance >= distanceToOpen)
-        {
-            cunOpenChest = false;
-            scriptToCheckPlayer.tipPressE.SetActive(false);
-        } 
-    }
     public void InteractionButton(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
             if (cunOpenChest)
             {
+                clickOnChest += 1;
                 Debug.Log("Chest Open");
                 Instantiate(item, pointSpawn.transform.position, Quaternion.identity);
-                //Destroy(gameObject);
+                if(clickOnChest == moneyInChest)
+                {
+                    Destroy(gameObject);
+                    clickOnChest = 0;
+                }
             }
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            cunOpenChest = true;
+            scriptToCheckPlayer.tipPressE.SetActive(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            cunOpenChest = false;
+            scriptToCheckPlayer.tipPressE.SetActive(false);
+        }
+    }
+
 }

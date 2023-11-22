@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForse = 6f;
     public bool onGraund = true;
     public string vector;
+    public bool smallPlayer = false;
+    public float sizeSmallPlayer = 0.3f;
     public Material materialVisible;
     public Material materialInvisible;
     public float delayToInvis;
@@ -49,13 +51,21 @@ public class PlayerController : MonoBehaviour
         _playerInputActions.PlayerAction.Jump.performed += Jump;
         _playerInputActions.PlayerAction.Skill.performed += Skill;
         _playerInputActions.PlayerAction.InteractionButton.performed += InteractionButton;
-        
+        _playerInputActions.PlayerAction.Resizeble.performed += Resizeble;
         nextLevel.SetActive(false);
     }
 
     private void FixedUpdate()
     {
-        if(_teleportMenuCunOpen == false)
+        if (smallPlayer)
+        {
+            transform.localScale = new Vector3(0.5f - sizeSmallPlayer, 0.5f - sizeSmallPlayer, 0.5f - sizeSmallPlayer);
+        }
+        else if (smallPlayer == false)
+        {
+            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        }
+        if (_teleportMenuCunOpen == false)
             teleportMenu.SetActive(false);
         
         if (invisible & canToInvis)
@@ -81,7 +91,7 @@ public class PlayerController : MonoBehaviour
             else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
             {
                 Debug.Log("Shift!!!");
-                _playerPosition.position -= new Vector3(0, 1.5f, 0) * Time.fixedDeltaTime;
+                _playerPosition.position -= new Vector3(0, 0.01f, 0) * Time.fixedDeltaTime;
             }   
         }
         
@@ -99,7 +109,6 @@ public class PlayerController : MonoBehaviour
         canToInvis = false;
         StartCoroutine(KDInvisible());
     }
-    
     private IEnumerator KDInvisible()
     {
         yield return new WaitForSeconds(kdInvisible);
@@ -116,7 +125,36 @@ public class PlayerController : MonoBehaviour
          onGraund = false;
       }
     }
-    
+    public void Big()
+    {
+        smallPlayer = false;
+    }
+    public void Small()
+    {
+        smallPlayer = true;
+    }
+    public void Resizeble(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (smallPlayer)
+            {
+                Debug.Log("Big");
+                if (onGraund)
+                {
+                    _playerRigidbody.AddForce(Vector3.up * (jumpForse - 3), ForceMode.Impulse);
+                    onGraund = false;
+                }
+                Invoke("Big", 0.2f);
+            }
+            else if (!smallPlayer)
+            {
+                Debug.Log("Small");
+                
+                Invoke("Small", 0.2f);
+            }
+        }
+    }
     public void Skill(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -134,19 +172,11 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Chest opened!");
             }
         }
-        
     }
     public void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Graund"))
             onGraund = true;
-        
-        if (other.collider.CompareTag("Teleport"))
-        {
-            _teleportMenuCunOpen = true;
-            tipPressE.SetActive(true);
-        }
-
         if (other.collider.CompareTag("NextLevel") && _hasKey)
             nextLevel.SetActive(true);
 
@@ -158,12 +188,6 @@ public class PlayerController : MonoBehaviour
     }
     public void OnCollisionExit(Collision other)
     {
-        if (other.collider.CompareTag("Teleport"))
-        {
-            _teleportMenuCunOpen = false;
-            tipPressE.SetActive(false);
-        }
-
         if (other.collider.CompareTag("Chest"))
         {
             tipPressE.SetActive(false);
@@ -175,6 +199,11 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Teleport"))
+        {
+            _teleportMenuCunOpen = true;
+            tipPressE.SetActive(true);
+        }
         if (other.CompareTag("Ladder"))
         {
             onGraund = false;
@@ -198,6 +227,11 @@ public class PlayerController : MonoBehaviour
             _playerRigidbody.useGravity = true;
             _playerRigidbody.constraints = RigidbodyConstraints.None;
             _playerRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        }
+        if (other.CompareTag("Teleport"))
+        {
+            _teleportMenuCunOpen = false;
+            tipPressE.SetActive(false);
         }
     }
 }
