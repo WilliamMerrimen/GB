@@ -10,6 +10,8 @@ TagManager:
   - Key
   - NextLevel
   - Chest
+  - maxUP
+  - maxDOWN
   layers:
   - Default
   - TransparentFX
