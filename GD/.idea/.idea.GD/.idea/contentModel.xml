@@ -43,12 +43,16 @@
           <e p="Textures" t="Include" />
         </e>
         <e p="Material" t="Include" />
-        <e p="Prefabs" t="Include" />
+        <e p="Prefabs" t="Include">
+          <e p="Textures" t="Include" />
+        </e>
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
           <e p="chestOpen.cs" t="Include" />
           <e p="dropedItemFhis.cs" t="Include" />
           <e p="Ladder.cs" t="Include" />
+          <e p="needlsTrap.cs" t="Include" />
+          <e p="platformMoved.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="Teleport.cs" t="Include" />
         </e>
