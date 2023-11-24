@@ -199,6 +199,10 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("needlesTrap"))
+        {
+            Debug.Log("You dead");
+        }
         if (other.CompareTag("Teleport"))
         {
             _teleportMenuCunOpen = true;

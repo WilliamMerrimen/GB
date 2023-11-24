@@ -314,7 +314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -395,7 +395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -723,7 +723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -1355,7 +1355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -3160,7 +3160,7 @@ GameObject:
   - component: {fileID: 189681875}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: needlesTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3187,7 +3187,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189681873}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3195,7 +3195,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3298,6 +3298,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1223128792}
+    - target: {fileID: 5547048928392387757, guid: 6d645e4bf1b620848a866c1d5a4237f9, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 6703822103910656214, guid: 6d645e4bf1b620848a866c1d5a4237f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14
@@ -3765,12 +3769,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 417778141}
+      objectReference: {fileID: 501550693}
     - target: {fileID: 8107160976175442249, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -5836,7 +5840,7 @@ Transform:
   m_GameObject: {fileID: 408077390}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.71502197, z: -0, w: 0.69910204}
-  m_LocalPosition: {x: -13.450738, y: -2.04, z: 24.78156}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.1054689, y: 1.6097723, z: 1.9350706}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6058,7 +6062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -6684,6 +6688,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 681684327}
+    - target: {fileID: 7140196433912200642, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 8137213603566990552, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -7766,7 +7774,7 @@ GameObject:
   - component: {fileID: 519245671}
   m_Layer: 0
   m_Name: Cylinder (10)
-  m_TagString: Untagged
+  m_TagString: needlesTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7793,7 +7801,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519245669}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7801,7 +7809,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7922,7 +7930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -8337,7 +8345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -8804,7 +8812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -8885,7 +8893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -9181,6 +9189,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1646765891}
+    - target: {fileID: 7140196433912200642, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 8137213603566990552, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -9463,7 +9475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -10079,7 +10091,7 @@ GameObject:
   - component: {fileID: 740059127}
   m_Layer: 0
   m_Name: Cylinder (1)
-  m_TagString: Untagged
+  m_TagString: needlesTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10106,7 +10118,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740059125}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10114,7 +10126,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -11143,6 +11155,10 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7140196433912200642, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 8137213603566990552, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -11348,7 +11364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -11494,7 +11510,7 @@ GameObject:
   - component: {fileID: 852666422}
   m_Layer: 0
   m_Name: Cylinder (5)
-  m_TagString: Untagged
+  m_TagString: needlesTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11521,7 +11537,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852666420}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -11529,7 +11545,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -11618,7 +11634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -11864,7 +11880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -12200,6 +12216,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 447890808}
+    - target: {fileID: 2990312967972459879, guid: 87cd65d8cdfd90a4ebf7930c0006b5c7, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 3493209794342121376, guid: 87cd65d8cdfd90a4ebf7930c0006b5c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14
@@ -13399,6 +13419,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 349915343}
+    - target: {fileID: 7140196433912200642, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 8137213603566990552, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -13422,7 +13446,7 @@ GameObject:
   - component: {fileID: 960992115}
   m_Layer: 0
   m_Name: Cylinder (11)
-  m_TagString: Untagged
+  m_TagString: needlesTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13449,7 +13473,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960992113}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -13457,7 +13481,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -13989,7 +14013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -14469,7 +14493,7 @@ GameObject:
   - component: {fileID: 1017936534}
   m_Layer: 0
   m_Name: Cylinder (4)
-  m_TagString: Untagged
+  m_TagString: needlesTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14496,7 +14520,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017936532}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -14504,7 +14528,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -14588,7 +14612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -14844,8 +14868,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.1490047, y: 1.1220162, z: 2.1384158}
-  m_Center: {x: 0.051498167, y: 0.061008096, z: -0.051816758}
+  m_Size: {x: 2.5, y: 1, z: 2.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1067757030
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14936,7 +14960,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067757028}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -15306,7 +15330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -15375,7 +15399,7 @@ GameObject:
   - component: {fileID: 1096068855}
   m_Layer: 0
   m_Name: Cylinder (9)
-  m_TagString: Untagged
+  m_TagString: needlesTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15402,7 +15426,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096068853}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -15410,7 +15434,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -16477,7 +16501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -16558,7 +16582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -17148,12 +17172,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 657071426}
+      objectReference: {fileID: 817871299}
     - target: {fileID: 8107160976175442249, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -17229,7 +17253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -19167,7 +19191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -21077,7 +21101,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445804810}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -21150,7 +21174,7 @@ Transform:
   m_GameObject: {fileID: 1445804810}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.71502197, z: 0, w: 0.69910204}
-  m_LocalPosition: {x: 8.39, y: 0.38, z: -5.76}
+  m_LocalPosition: {x: 3.87, y: 0.38, z: -5.76}
   m_LocalScale: {x: 0.51658, y: 0.62120587, z: 0.90479}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21176,8 +21200,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.474778, y: 1.912222, z: 2.7198522}
-  m_Center: {x: 0.051980127, y: 0.45611045, z: -0.0028355997}
+  m_Size: {x: 4.4, y: 2, z: 2.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &1452641117 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4016725031708257163, guid: 32178c410a61bc9409a7067bc7dee34a, type: 3}
@@ -21197,7 +21221,7 @@ GameObject:
   - component: {fileID: 1464050144}
   m_Layer: 0
   m_Name: Cylinder (2)
-  m_TagString: Untagged
+  m_TagString: needlesTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21224,7 +21248,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464050142}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -21232,7 +21256,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -21816,7 +21840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -22454,6 +22478,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1646765891}
+    - target: {fileID: 7140196433912200642, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 8137213603566990552, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -25273,7 +25301,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757033528}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -25306,8 +25334,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.1490047, y: 1.1220162, z: 2.1384158}
-  m_Center: {x: 0.051498167, y: 0.061008096, z: -0.051816758}
+  m_Size: {x: 2.5, y: 1, z: 2.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1762118305
 GameObject:
   m_ObjectHideFlags: 0
@@ -25322,7 +25350,7 @@ GameObject:
   - component: {fileID: 1762118307}
   m_Layer: 0
   m_Name: Cylinder (7)
-  m_TagString: Untagged
+  m_TagString: needlesTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25349,7 +25377,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762118305}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -25357,7 +25385,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -25580,6 +25608,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1353699035}
+    - target: {fileID: 7140196433912200642, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 8137213603566990552, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -26073,6 +26105,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1646765891}
+    - target: {fileID: 7140196433912200642, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 8137213603566990552, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -26513,7 +26549,7 @@ GameObject:
   - component: {fileID: 1826492498}
   m_Layer: 0
   m_Name: Cylinder (8)
-  m_TagString: Untagged
+  m_TagString: needlesTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26540,7 +26576,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826492496}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -26548,7 +26584,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -26642,7 +26678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -26711,7 +26747,7 @@ GameObject:
   - component: {fileID: 1862891717}
   m_Layer: 0
   m_Name: Cylinder (6)
-  m_TagString: Untagged
+  m_TagString: needlesTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26738,7 +26774,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862891715}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -26746,7 +26782,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -26947,7 +26983,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880033765}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -27957,7 +27993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -28093,6 +28129,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1646765891}
+    - target: {fileID: 7140196433912200642, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 8137213603566990552, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -28121,7 +28161,7 @@ GameObject:
   - component: {fileID: 1982558608}
   m_Layer: 0
   m_Name: Cylinder (3)
-  m_TagString: Untagged
+  m_TagString: needlesTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28148,7 +28188,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982558606}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -28156,7 +28196,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -28403,8 +28443,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000980070}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.71502197, z: 0, w: 0.69910204}
-  m_LocalPosition: {x: 8.39, y: 1.201, z: -5.76}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.24, y: 2.89, z: -4.1}
   m_LocalScale: {x: 0.5165801, y: 0.62120587, z: 0.90479016}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28751,6 +28791,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1417179391}
+    - target: {fileID: 7140196433912200642, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 8137213603566990552, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -29105,7 +29149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2989185204945399698, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_TagString
-      value: Graund
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7167559685792751699, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
       propertyPath: m_Mesh
@@ -29185,6 +29229,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1925249746}
+    - target: {fileID: 2990312967972459879, guid: 87cd65d8cdfd90a4ebf7930c0006b5c7, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 3493209794342121376, guid: 87cd65d8cdfd90a4ebf7930c0006b5c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8
@@ -30602,6 +30650,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1707223621}
+    - target: {fileID: 7140196433912200642, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 8137213603566990552, guid: 8bb231f85247f6640a175e8379f236ed, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -31746,6 +31798,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1465183063}
+    - target: {fileID: 5547048928392387757, guid: 6d645e4bf1b620848a866c1d5a4237f9, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1d20b35260cf7d1489c2b249946b6da4, type: 2}
     - target: {fileID: 6703822103910656214, guid: 6d645e4bf1b620848a866c1d5a4237f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11

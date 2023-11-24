@@ -12,6 +12,8 @@ TagManager:
   - Chest
   - maxUP
   - maxDOWN
+  - Wall
+  - needlesTrap
   layers:
   - Default
   - TransparentFX
