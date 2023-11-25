@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     
     private void Awake()
     {
-        _meshRenderer = gameObject.GetComponent<MeshRenderer>();
+        _meshRenderer = gameObject.GetComponentInChildren<MeshRenderer>();
         _playerRigidbody = GetComponent<Rigidbody>();
         _playerInput = GetComponent<PlayerInput>();
         _playerPosition = GetComponent<Transform>();
@@ -59,11 +59,11 @@ public class PlayerController : MonoBehaviour
     {
         if (smallPlayer)
         {
-            transform.localScale = new Vector3(0.5f - sizeSmallPlayer, 0.5f - sizeSmallPlayer, 0.5f - sizeSmallPlayer);
+            transform.localScale = new Vector3(0.7f - sizeSmallPlayer, 0.7f - sizeSmallPlayer, 0.7f - sizeSmallPlayer);
         }
         else if (smallPlayer == false)
         {
-            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
         }
         if (_teleportMenuCunOpen == false)
             teleportMenu.SetActive(false);
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
             else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
             {
                 Debug.Log("Shift!!!");
-                _playerPosition.position -= new Vector3(0, 0.01f, 0) * Time.fixedDeltaTime;
+                _playerPosition.position -= new Vector3(0, 0.5f, 0) * Time.fixedDeltaTime;
             }   
         }
         
@@ -185,6 +185,12 @@ public class PlayerController : MonoBehaviour
             tipPressE.SetActive(true);
             _isChest = true;
         }
+        
+        if (other.collider.CompareTag("Teleport"))
+        {
+            _teleportMenuCunOpen = true;
+            tipPressE.SetActive(true);
+        }
     }
     public void OnCollisionExit(Collision other)
     {
@@ -196,17 +202,18 @@ public class PlayerController : MonoBehaviour
         
         if (other.collider.CompareTag("NextLevel"))
             nextLevel.SetActive(false);
+
+        if (other.collider.CompareTag("Teleport"))
+        {
+            _teleportMenuCunOpen = false;
+            tipPressE.SetActive(false);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("needlesTrap"))
         {
             Debug.Log("You dead");
-        }
-        if (other.CompareTag("Teleport"))
-        {
-            _teleportMenuCunOpen = true;
-            tipPressE.SetActive(true);
         }
         if (other.CompareTag("Ladder"))
         {
@@ -231,11 +238,6 @@ public class PlayerController : MonoBehaviour
             _playerRigidbody.useGravity = true;
             _playerRigidbody.constraints = RigidbodyConstraints.None;
             _playerRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-        }
-        if (other.CompareTag("Teleport"))
-        {
-            _teleportMenuCunOpen = false;
-            tipPressE.SetActive(false);
         }
     }
 }
