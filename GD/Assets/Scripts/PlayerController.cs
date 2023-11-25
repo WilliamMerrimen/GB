@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 using System.Collections;
 public class PlayerController : MonoBehaviour
 {
+    private Animator _playerAnivator;
+    
     private Rigidbody _playerRigidbody;
     private PlayerInput _playerInput;
     private PlayerInputActions _playerInputActions;
@@ -53,17 +55,17 @@ public class PlayerController : MonoBehaviour
         _playerInputActions.PlayerAction.InteractionButton.performed += InteractionButton;
         _playerInputActions.PlayerAction.Resizeble.performed += Resizeble;
         nextLevel.SetActive(false);
+        _playerAnivator = GetComponent<Animator>();
     }
-
     private void FixedUpdate()
     {
         if (smallPlayer)
         {
-            transform.localScale = new Vector3(0.7f - sizeSmallPlayer, 0.7f - sizeSmallPlayer, 0.7f - sizeSmallPlayer);
+            transform.localScale = new Vector3(0.8f - sizeSmallPlayer, 0.8f - sizeSmallPlayer, 0.8f - sizeSmallPlayer);
         }
         else if (smallPlayer == false)
         {
-            transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         }
         if (_teleportMenuCunOpen == false)
             teleportMenu.SetActive(false);
@@ -78,10 +80,15 @@ public class PlayerController : MonoBehaviour
             _meshRenderer.material = materialVisible;
         
         Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
-        
+
         if (!isHit)
+        {
             _playerPosition.position += new Vector3(inputVector.x, 0, inputVector.y) * speed * Time.fixedDeltaTime;
-        
+            if(inputVector.x != 0 || inputVector.y != 0 )
+                _playerAnivator.SetBool("isRunning", true);
+            if(inputVector.x == 0 && inputVector.y == 0)
+                _playerAnivator.SetBool("isRunning", false);
+        }
         else
         {
             if (!Input.GetKey(KeyCode.LeftShift))
@@ -123,6 +130,7 @@ public class PlayerController : MonoBehaviour
          Debug.Log("Jump! " + context.phase);
          _jumpCount += 1;
          onGraund = false;
+         _playerAnivator.Play("Jumping Up");
       }
     }
     public void Big()

@@ -1,28 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    public int IDTeleport;
-    public int TeleportEnter;
-    public Transform playerTrans;
-    public Transform OneTpTrans;
-    public Transform TwoTpTrans;
+    private GameObject _player;
+    public List<Transform> teleportList = new List<Transform>();
+    [SerializeField] private Dictionary<Transform,int> _teleports = new Dictionary<Transform, int>();
 
-    public void OnCollisionEnter(Collision other)
+    private void Awake()
     {
-        if (other.collider.CompareTag("Player"))
-        {
-            Debug.Log(IDTeleport);
-        }
+        _player = GameObject.FindWithTag("Player");
+        for (int i = 0; i < teleportList.Count; i++)
+            _teleports.Add(teleportList[i],i);
     }
-    public void IdOne()
+    public void TeleportFunc(int numberOfTeleport)
     {
-        playerTrans.transform.position = OneTpTrans.transform.position;
-    }
-    public void IdTwo()
-    {
-        playerTrans.transform.position = TwoTpTrans.transform.position;
+        _player.transform.position = teleportList[numberOfTeleport].position;
     }
 }

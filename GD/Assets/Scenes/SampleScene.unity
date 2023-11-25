@@ -5639,11 +5639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92982fd8df497c42b455883cbb3ce77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IDTeleport: 0
-  TeleportEnter: 0
-  playerTrans: {fileID: 1168322423}
-  OneTpTrans: {fileID: 1273586160}
-  TwoTpTrans: {fileID: 331232419}
+  teleportList:
+  - {fileID: 1067757032}
+  - {fileID: 1757033532}
 --- !u!4 &388621678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8738898725219184662, guid: 284e1936586f01646b0c8283506f42ae, type: 3}
@@ -14840,7 +14838,6 @@ GameObject:
   - component: {fileID: 1067757031}
   - component: {fileID: 1067757030}
   - component: {fileID: 1067757029}
-  - component: {fileID: 1067757033}
   - component: {fileID: 1067757034}
   m_Layer: 0
   m_Name: teleport One
@@ -14936,23 +14933,6 @@ Transform:
   - {fileID: 1273586160}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1067757033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1067757028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e92982fd8df497c42b455883cbb3ce77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IDTeleport: 1
-  TeleportEnter: 0
-  playerTrans: {fileID: 0}
-  OneTpTrans: {fileID: 0}
-  TwoTpTrans: {fileID: 0}
 --- !u!65 &1067757034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20995,8 +20975,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 377089212}
         m_TargetAssemblyTypeName: Teleport, Assembly-CSharp
-        m_MethodName: IdOne
-        m_Mode: 1
+        m_MethodName: TeleportFunc
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -25201,7 +25181,6 @@ GameObject:
   - component: {fileID: 1757033532}
   - component: {fileID: 1757033531}
   - component: {fileID: 1757033530}
-  - component: {fileID: 1757033533}
   - component: {fileID: 1757033535}
   - component: {fileID: 1757033534}
   m_Layer: 0
@@ -25277,23 +25256,6 @@ Transform:
   - {fileID: 331232419}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1757033533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757033528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e92982fd8df497c42b455883cbb3ce77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IDTeleport: 2
-  TeleportEnter: 0
-  playerTrans: {fileID: 0}
-  OneTpTrans: {fileID: 0}
-  TwoTpTrans: {fileID: 0}
 --- !u!65 &1757033534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29753,12 +29715,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 377089212}
         m_TargetAssemblyTypeName: Teleport, Assembly-CSharp
-        m_MethodName: IdTwo
-        m_Mode: 1
+        m_MethodName: TeleportFunc
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
