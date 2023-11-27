@@ -84,8 +84,19 @@ public class PlayerController : MonoBehaviour
         if (!isHit)
         {
             _playerPosition.position += new Vector3(inputVector.x, 0, inputVector.y) * speed * Time.fixedDeltaTime;
-            if(inputVector.x != 0 || inputVector.y != 0 )
+            if (inputVector.x != 0 || inputVector.y != 0)
+            {
                 _playerAnivator.SetBool("isRunning", true);
+                if (inputVector.x == -1)
+                    _playerPosition.eulerAngles = new Vector3(0,-90,0);
+                if(inputVector.x == 1)
+                    _playerPosition.eulerAngles = new Vector3(0,90,0);
+                if(inputVector.y == 1)
+                    _playerPosition.eulerAngles = new Vector3(0,0,0);
+                if(inputVector.y == -1)
+                    _playerPosition.eulerAngles = new Vector3(0,180,0);
+            }
+
             if(inputVector.x == 0 && inputVector.y == 0)
                 _playerAnivator.SetBool("isRunning", false);
         }
