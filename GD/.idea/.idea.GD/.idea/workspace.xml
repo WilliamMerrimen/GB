@@ -20,8 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="434e9809-b5a4-4e3a-9f01-e61edafe53f4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane100x100W200H200.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane100x100W200H200.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/FirstTestingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/FirstTestingScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +36,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/Downloads/Telegram Desktop/TestingInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Teleport.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/platformMoved.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -45,6 +48,10 @@
         <option value="$PROJECT_DIR$/Assets/prefabs/2conect2.prefab" />
         <option value="$PROJECT_DIR$/Assets/prefabs/3conect.prefab" />
         <option value="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/dropedItemFhis.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/platformMoved.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Teleport.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AnimatorScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       </list>
     </option>
@@ -96,6 +103,7 @@
       <workItem from="1699676935622" duration="19751000" />
       <workItem from="1699835893219" duration="1109000" />
       <workItem from="1700073920134" duration="43000" />
+      <workItem from="1700285785696" duration="25290000" />
     </task>
     <servers />
   </component>

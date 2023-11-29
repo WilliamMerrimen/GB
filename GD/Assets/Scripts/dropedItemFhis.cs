@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,14 +17,21 @@ public class dropedItemFhis : MonoBehaviour
     public PlayerController scriptToCheckPlayer;
     public float speed;
     public float dropForse;
-    private void FixedUpdate()
+
+    private void Awake()
     {
         CheckPlayer = GameObject.FindGameObjectsWithTag("Player");
         scriptToCheckPlayer = CheckPlayer[0].GetComponent<PlayerController>();
+    }
+
+    private void FixedUpdate()
+    {
         chestPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         playerPos = scriptToCheckPlayer.playerPos.position;
         delta = gameObject.transform.position - playerPos;
+        
         delta.Normalize();
+        
         if(flag == 1)
         {
             gameObject.GetComponent<Rigidbody>().AddForce(-delta * dropForse, ForceMode.Impulse);
@@ -50,17 +58,10 @@ public class dropedItemFhis : MonoBehaviour
         colider = gameObject.GetComponent<Collider>();
         colider.isTrigger = true;
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
-        {
-            scriptToCheckPlayer.Money += 1;
-            Destroy(gameObject);
-        }
-    }
+    
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Player")
+        if (collision.collider.CompareTag("Player"))
         {
             scriptToCheckPlayer.Money += 1;
             Destroy(gameObject);

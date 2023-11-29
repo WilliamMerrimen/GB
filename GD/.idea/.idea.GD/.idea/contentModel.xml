@@ -5,6 +5,7 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Animations" t="Include" />
         <e p="InputSystems" t="Include">
           <e p="PlayerInputActions.cs" t="Include" />
         </e>
@@ -43,12 +44,30 @@
           <e p="Textures" t="Include" />
         </e>
         <e p="Material" t="Include" />
-        <e p="Prefabs" t="Include" />
+        <e p="PolygonPirates" t="Include">
+          <e p="Materials" t="Include" />
+          <e p="Models" t="Include">
+            <e p="Materials" t="Include" />
+          </e>
+          <e p="Prefabs" t="Include">
+            <e p="Characters" t="Include" />
+            <e p="Items" t="Include" />
+            <e p="Props" t="Include" />
+            <e p="Vehicles" t="Include" />
+            <e p="Weapons" t="Include" />
+          </e>
+          <e p="Textures" t="Include" />
+        </e>
+        <e p="Prefabs" t="Include">
+          <e p="Textures" t="Include" />
+        </e>
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
           <e p="chestOpen.cs" t="Include" />
           <e p="dropedItemFhis.cs" t="Include" />
           <e p="Ladder.cs" t="Include" />
+          <e p="needlsTrap.cs" t="Include" />
+          <e p="platformMoved.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="Teleport.cs" t="Include" />
         </e>

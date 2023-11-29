@@ -62,6 +62,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Resizeble"",
+                    ""type"": ""Button"",
+                    ""id"": ""e6c31fa2-f9e9-4225-81aa-56d5b0aa8c4c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""InteractionButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7da774f0-9eb1-4674-a0c2-fea68f747987"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Resizeble"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +184,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_PlayerAction_Movement = m_PlayerAction.FindAction("Movement", throwIfNotFound: true);
         m_PlayerAction_Skill = m_PlayerAction.FindAction("Skill", throwIfNotFound: true);
         m_PlayerAction_InteractionButton = m_PlayerAction.FindAction("InteractionButton", throwIfNotFound: true);
+        m_PlayerAction_Resizeble = m_PlayerAction.FindAction("Resizeble", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +250,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerAction_Movement;
     private readonly InputAction m_PlayerAction_Skill;
     private readonly InputAction m_PlayerAction_InteractionButton;
+    private readonly InputAction m_PlayerAction_Resizeble;
     public struct PlayerActionActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -237,6 +259,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_PlayerAction_Movement;
         public InputAction @Skill => m_Wrapper.m_PlayerAction_Skill;
         public InputAction @InteractionButton => m_Wrapper.m_PlayerAction_InteractionButton;
+        public InputAction @Resizeble => m_Wrapper.m_PlayerAction_Resizeble;
         public InputActionMap Get() { return m_Wrapper.m_PlayerAction; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +281,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @InteractionButton.started += instance.OnInteractionButton;
             @InteractionButton.performed += instance.OnInteractionButton;
             @InteractionButton.canceled += instance.OnInteractionButton;
+            @Resizeble.started += instance.OnResizeble;
+            @Resizeble.performed += instance.OnResizeble;
+            @Resizeble.canceled += instance.OnResizeble;
         }
 
         private void UnregisterCallbacks(IPlayerActionActions instance)
@@ -274,6 +300,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @InteractionButton.started -= instance.OnInteractionButton;
             @InteractionButton.performed -= instance.OnInteractionButton;
             @InteractionButton.canceled -= instance.OnInteractionButton;
+            @Resizeble.started -= instance.OnResizeble;
+            @Resizeble.performed -= instance.OnResizeble;
+            @Resizeble.canceled -= instance.OnResizeble;
         }
 
         public void RemoveCallbacks(IPlayerActionActions instance)
@@ -297,5 +326,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnSkill(InputAction.CallbackContext context);
         void OnInteractionButton(InputAction.CallbackContext context);
+        void OnResizeble(InputAction.CallbackContext context);
     }
 }
