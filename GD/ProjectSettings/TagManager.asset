@@ -14,7 +14,6 @@ TagManager:
   - maxDOWN
   - Wall
   - needlesTrap
-  - DeathWater
   layers:
   - Default
   - TransparentFX

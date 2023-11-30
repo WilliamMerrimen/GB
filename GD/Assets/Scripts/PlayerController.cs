@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
-using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private Animator _playerAnivator;
@@ -14,7 +13,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 _inputVector;
 
     public Transform playerPos;
-    public float rotationSpeed;
     public float speed = 5f;
     public float jumpForse = 6f;
     public bool onGraund = true;
@@ -33,7 +31,6 @@ public class PlayerController : MonoBehaviour
     public GameObject tipPressE;
     public GameObject nextLevel;
 
-    private Vector3 _climbVector;
     private bool _teleportMenuCunOpen = false;
     private MeshRenderer _meshRenderer;
     private short _jumpCount = 0;
@@ -83,20 +80,21 @@ public class PlayerController : MonoBehaviour
             _meshRenderer.material = materialVisible;
         
         Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
-        Vector3 moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
-        moveDirection.Normalize();
-        if(moveDirection != Vector3.zero)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
-        }
         if (!isHit)
         {
             _playerPosition.position += new Vector3(inputVector.x, 0, inputVector.y) * speed * Time.fixedDeltaTime;
             if (inputVector.x != 0 || inputVector.y != 0)
             {
                 _playerAnivator.SetBool("isRunning", true);
+                if (inputVector.x == -1)
+                    _playerPosition.eulerAngles = new Vector3(0,-90,0);
+                if(inputVector.x == 1)
+                    _playerPosition.eulerAngles = new Vector3(0,90,0);
+                if(inputVector.y == 1)
+                    _playerPosition.eulerAngles = new Vector3(0,0,0);
+                if(inputVector.y == -1)
+                    _playerPosition.eulerAngles = new Vector3(0,180,0);
             }
 
             if(inputVector.x == 0 && inputVector.y == 0)
@@ -105,26 +103,13 @@ public class PlayerController : MonoBehaviour
         else
         {
             if (!Input.GetKey(KeyCode.LeftShift))
-            {
-                _climbVector = new Vector3(inputVector.x * (speed-2), Math.Abs(inputVector.x != 0 ? inputVector.x  : inputVector.y) * speed, inputVector.y * (speed-2)) * Time.fixedDeltaTime;
-                _playerPosition.position += _climbVector;
-                _playerAnivator.SetBool("climbingDown", false);
-                if (_climbVector.y == 0)
-                {
-                    _playerAnivator.speed = 0.0f;
-                    Debug.Log("QWEQWEQWEEWQEWEWQEWQ");
-                }
-                else
-                {
-                    _playerAnivator.speed = 1.0f;
-                }
-            }
+                _playerPosition.position += new Vector3(inputVector.x * (speed-2), Math.Abs(inputVector.x != 0 ? inputVector.x  : inputVector.y) * speed, inputVector.y * (speed-2)) * Time.fixedDeltaTime;
+            
+            
             else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
             {
                 Debug.Log("Shift!!!");
-                _playerPosition.position -= new Vector3(0, 2, 0) * Time.fixedDeltaTime;
-                _playerAnivator.SetBool("climbingDown", true);
-                _playerAnivator.speed = 1.0f;
+                _playerPosition.position -= new Vector3(0, 0.5f, 0) * Time.fixedDeltaTime;
             }   
         }
         
@@ -255,7 +240,6 @@ public class PlayerController : MonoBehaviour
             isHit = true;
             _playerRigidbody.constraints = RigidbodyConstraints.FreezePositionY;
             _playerRigidbody.freezeRotation = true;
-            _playerAnivator.SetBool("Climbing", true);
         }
 
         if (other.CompareTag("Key"))
@@ -273,11 +257,6 @@ public class PlayerController : MonoBehaviour
             _playerRigidbody.useGravity = true;
             _playerRigidbody.constraints = RigidbodyConstraints.None;
             _playerRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-            _playerAnivator.SetBool("Climbing", false);
-        }
-        if (other.CompareTag("DeathWater"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
