@@ -21,9 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="434e9809-b5a4-4e3a-9f01-e61edafe53f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane100x100W200H200.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane100x100W200H200.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/FirstTestingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/FirstTestingScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PolygonPirates/Prefabs/Characters/Character_Pirate_Blackbeard_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonPirates/Prefabs/Characters/Character_Pirate_Blackbeard_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/dropedItemFhis.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/dropedItemFhis.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/prefabs/PlayerPirate Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/PlayerPirate Variant.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +34,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/Downloads/Telegram Desktop/TestingInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Teleport.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/platformMoved.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -48,10 +47,10 @@
         <option value="$PROJECT_DIR$/Assets/prefabs/2conect2.prefab" />
         <option value="$PROJECT_DIR$/Assets/prefabs/3conect.prefab" />
         <option value="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/dropedItemFhis.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/platformMoved.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Teleport.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AnimatorScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/dropedItemFhis.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       </list>
     </option>
@@ -68,7 +67,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -128,9 +127,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1699473812418">
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1701356859396">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1699473812418" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1701356859396" />
   </component>
 </project>
