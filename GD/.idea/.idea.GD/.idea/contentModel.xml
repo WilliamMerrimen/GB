@@ -17,6 +17,13 @@
               </e>
             </e>
           </e>
+          <e p="Pirate Kit" t="Include">
+            <e p="Models" t="Include">
+              <e p="FBX format" t="Include">
+                <e p="Materials" t="Include" />
+              </e>
+            </e>
+          </e>
         </e>
         <e p="Low Poly Water" t="Include">
           <e p="Plane Meshes" t="Include" />
@@ -45,12 +52,16 @@
         </e>
         <e p="Material" t="Include" />
         <e p="PolygonPirates" t="Include">
-          <e p="Materials" t="Include" />
+          <e p="Materials" t="Include">
+            <e p="FX_Materials" t="Include" />
+          </e>
           <e p="Models" t="Include">
             <e p="Materials" t="Include" />
           </e>
           <e p="Prefabs" t="Include">
+            <e p="Buildings" t="Include" />
             <e p="Characters" t="Include" />
+            <e p="Environments" t="Include" />
             <e p="Items" t="Include" />
             <e p="Props" t="Include" />
             <e p="Vehicles" t="Include" />
