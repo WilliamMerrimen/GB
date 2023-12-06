@@ -35,8 +35,7 @@ public class PlayerController : MonoBehaviour
     private bool _teleportMenuCunOpen = false;
     private MeshRenderer _meshRenderer;
     public bool isHit = false;
-    private bool _hasKey = false;
-
+    public bool _hasKey = false;
 
     public int Money = 0;
     
@@ -87,6 +86,8 @@ public class PlayerController : MonoBehaviour
         }
         if (!isHit)
         {
+            _playerAnivator.SetBool("isClimbing", false);
+            _playerAnivator.speed = 1.0f;
             _playerPosition.position += new Vector3(inputVector.x, 0, inputVector.y) * speed * Time.fixedDeltaTime;
             if (inputVector.x != 0 || inputVector.y != 0)
             {
@@ -101,14 +102,26 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            _playerAnivator.SetBool("isClimbing", true);
+            _playerAnivator.SetBool("isClimbingDown", false);
             if (!Input.GetKey(KeyCode.LeftShift))
-                _playerPosition.position += new Vector3(inputVector.x * (speed-2), Math.Abs(inputVector.x != 0 ? inputVector.x  : inputVector.y) * speed, inputVector.y * (speed-2)) * Time.fixedDeltaTime;
-            
-            
+            {
+                Vector3 climbVec = new Vector3(inputVector.x * (speed-2), Math.Abs(inputVector.x != 0 ? inputVector.x  : inputVector.y) * (speed-2), inputVector.y * (speed-2)) * Time.fixedDeltaTime;
+                _playerPosition.position += climbVec;
+               if(climbVec.y == 0)
+                {
+                    _playerAnivator.speed = 0.0f;
+                }
+                else
+                {
+                    _playerAnivator.speed = 1.0f;
+                }
+            }
             else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
             {
                 Debug.Log("Shift!!!");
-                _playerPosition.position -= new Vector3(0, 0.5f, 0) * Time.fixedDeltaTime;
+                _playerPosition.position -= new Vector3(0, 1f, 0) * Time.fixedDeltaTime;
+                _playerAnivator.speed = -1.1f;
             }   
         }
         playerPos = _playerPosition;
@@ -131,14 +144,13 @@ public class PlayerController : MonoBehaviour
         _playerRigidbody.AddForce(Vector3.up * jumpForse, ForceMode.Impulse);
          Debug.Log("Jump!");
     }
-
     public void Jump(InputAction.CallbackContext context)
     { 
       if (context.performed && onGraund) 
       {
             StartCoroutine(JumpTimeStabil());
-         onGraund = false;
-         _playerAnivator.Play("Jumping Up");
+            onGraund = false;
+            _playerAnivator.Play("Jumping Up");
       }
     }
     public void Big()
@@ -191,7 +203,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Graund"))
+        if (other.gameObject.CompareTag("Graund"))
             onGraund = true;
         if (other.collider.CompareTag("NextLevel") && _hasKey)
             nextLevel.SetActive(true);
@@ -201,7 +213,7 @@ public class PlayerController : MonoBehaviour
             tipPressE.SetActive(true);
             _isChest = true;
         }
-        
+
         if (other.collider.CompareTag("Teleport"))
         {
             _teleportMenuCunOpen = true;
@@ -215,10 +227,10 @@ public class PlayerController : MonoBehaviour
             tipPressE.SetActive(false);
             _isChest = false;
         }
-        
         if (other.collider.CompareTag("NextLevel"))
+        {
             nextLevel.SetActive(false);
-
+        }
         if (other.collider.CompareTag("Teleport"))
         {
             _teleportMenuCunOpen = false;
@@ -227,8 +239,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("needlesTrap"))
-        {
+        if (other.CompareTag("needlesTrap")){
             Debug.Log("You dead");
         }
         if (other.CompareTag("Ladder"))
@@ -237,13 +248,6 @@ public class PlayerController : MonoBehaviour
             isHit = true;
             _playerRigidbody.constraints = RigidbodyConstraints.FreezePositionY;
             _playerRigidbody.freezeRotation = true;
-        }
-
-        if (other.CompareTag("Key"))
-        {
-            _hasKey = true;
-            Debug.Log("Has Key!");
-            Destroy(other.gameObject);
         }
     }
     private void OnTriggerExit(Collider other)
