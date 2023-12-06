@@ -34,9 +34,6 @@ public class PlayerController : MonoBehaviour
 
     private bool _teleportMenuCunOpen = false;
     private MeshRenderer _meshRenderer;
-    private short _jumpCount = 0;
-    private short _maxCountJump = 1;
-    public bool isEnableDublJump = false;
     public bool isHit = false;
     private bool _hasKey = false;
 
@@ -114,12 +111,6 @@ public class PlayerController : MonoBehaviour
                 _playerPosition.position -= new Vector3(0, 0.5f, 0) * Time.fixedDeltaTime;
             }   
         }
-        
-        if (onGraund)
-            _jumpCount = 0;
-        
-        if (isEnableDublJump)
-            _maxCountJump = 2;
         playerPos = _playerPosition;
     }
     private IEnumerator WaitForInvOne()
@@ -134,14 +125,18 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(kdInvisible);
         canToInvis = true;
     }
+    private IEnumerator JumpTimeStabil()
+    {
+        yield return new WaitForSeconds(0.15f);
+        _playerRigidbody.AddForce(Vector3.up * jumpForse, ForceMode.Impulse);
+         Debug.Log("Jump!");
+    }
 
     public void Jump(InputAction.CallbackContext context)
     { 
-      if (context.performed & _jumpCount < _maxCountJump) 
+      if (context.performed && onGraund) 
       {
-         _playerRigidbody.AddForce(Vector3.up * jumpForse, ForceMode.Impulse);
-         Debug.Log("Jump! " + context.phase);
-         _jumpCount += 1;
+            StartCoroutine(JumpTimeStabil());
          onGraund = false;
          _playerAnivator.Play("Jumping Up");
       }
