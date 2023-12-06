@@ -22,63 +22,13 @@
     <list default="true" id="434e9809-b5a4-4e3a-9f01-e61edafe53f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Kenney Assets/Nature Kit/Models/FBX format/cliffBrown_stepsCornerInner.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Kenney Assets/Nature Kit/Models/FBX format/cliffBrown_stepsCornerInner.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Kenney Assets/Nature Kit/Models/FBX format/rock_tall1.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Kenney Assets/Nature Kit/Models/FBX format/rock_tall1.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Kenney Assets/Nature Kit/Models/FBX format/rock_tall3.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Kenney Assets/Nature Kit/Models/FBX format/rock_tall3.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Kenney Assets/Pirate Kit/Models/FBX format/palm_detailed_long.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Kenney Assets/Pirate Kit/Models/FBX format/palm_detailed_long.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Kenney Assets/Pirate Kit/Models/FBX format/palm_long.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Kenney Assets/Pirate Kit/Models/FBX format/palm_long.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane25x25W50H50.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane25x25W50H50.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LowPolyWater_Pack/Scripts/LowPolyWater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LowPolyWater_Pack/Scripts/LowPolyWater.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonPirates/Prefabs/Environments/SM_Env_Beach_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonPirates/Prefabs/Environments/SM_Env_Beach_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane100x100W100H100.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane100x100W100H100.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane100x100W200H200.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane100x100W200H200.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Teleport.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Teleport.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/PlayerPirate Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/PlayerPirate Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/FirstTestingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/FirstTestingScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/2conect.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/2conect.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/2conect2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/2conect2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/3conect.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/3conect.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/4conect.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/4conect.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Column Block.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Column Block.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Cone.001 1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Cone.001 1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Item.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Item.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Key2_Low.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Key2_Low.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/LadderBlock.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/LadderBlock.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Plane.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Plane.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Player.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/PlayerPirate Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/PlayerPirate Variant.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_brown.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_brown.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_brownTop.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_brownTop.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_cornerInnerTop 1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_cornerInnerTop 1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_cornerInnerTop.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_cornerInnerTop.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_cornerMid.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_cornerMid.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_cornerTop.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_cornerTop.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_road.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/SM_road.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/WayBlock.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/WayBlock.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/ladr.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/ladr.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/textures/towercolours4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/textures/towercolours4.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/tree_blocks.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/tree_blocks.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,11 +53,11 @@
         <option value="$PROJECT_DIR$/Assets/prefabs/3conect.prefab" />
         <option value="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" />
         <option value="$PROJECT_DIR$/Assets/Scripts/platformMoved.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Teleport.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AnimatorScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/dropedItemFhis.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/LowPolyWater_Pack/Scripts/LowPolyWater.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Teleport.cs" />
       </list>
     </option>
   </component>
@@ -159,7 +109,8 @@
       <workItem from="1699835893219" duration="1109000" />
       <workItem from="1700073920134" duration="43000" />
       <workItem from="1700285785696" duration="25290000" />
-      <workItem from="1701805549157" duration="536000" />
+      <workItem from="1701805549157" duration="1279000" />
+      <workItem from="1701846127896" duration="767000" />
     </task>
     <servers />
   </component>

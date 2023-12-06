@@ -10,8 +10,9 @@ public class Teleport : MonoBehaviour
     private void Awake()
     {
         _player = GameObject.FindWithTag("Player");
-        for (int i = 0; i < teleportList.Count; i++)
-            _teleports.Add(teleportList[i],i);
+    //    if(teleportList.Count > 0)
+  //          for (int i = 0; i < teleportList.Count; i++)
+//                _teleports.Add(teleportList[i],i);
     }
     public void TeleportFunc(int numberOfTeleport)
     {
