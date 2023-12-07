@@ -35,8 +35,9 @@ public class PlayerController : MonoBehaviour
     private bool _teleportMenuCunOpen = false;
     private MeshRenderer _meshRenderer;
     public bool isHit = false;
-    private bool _hasKey = false;
-
+    public bool _hasKey = false;
+    public bool keyLocate = false;
+    public GameObject keyLocateDel;
 
     public int Money = 0;
     
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
         _playerAnivator = GetComponent<Animator>();
     }
     private void FixedUpdate()
-    {
+    { 
         if (smallPlayer)
         {
             transform.localScale = new Vector3(0.8f - sizeSmallPlayer, 0.8f - sizeSmallPlayer, 0.8f - sizeSmallPlayer);
@@ -187,20 +188,21 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Chest opened!");
             }
+            if (keyLocate) {
+                _hasKey = true;
+                Destroy(keyLocateDel);
+                tipPressE.SetActive(false);
+                keyLocate = false;
+                Debug.Log("Key taked!");
+            }
         }
     }
     public void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Graund"))
             onGraund = true;
-        if (other.collider.CompareTag("NextLevel") && _hasKey)
+        if (other.collider.CompareTag("NextLevel"))
             nextLevel.SetActive(true);
-
-        if (other.collider.CompareTag("Chest"))
-        {
-            tipPressE.SetActive(true);
-            _isChest = true;
-        }
         
         if (other.collider.CompareTag("Teleport"))
         {
@@ -210,12 +212,6 @@ public class PlayerController : MonoBehaviour
     }
     public void OnCollisionExit(Collision other)
     {
-        if (other.collider.CompareTag("Chest"))
-        {
-            tipPressE.SetActive(false);
-            _isChest = false;
-        }
-        
         if (other.collider.CompareTag("NextLevel"))
             nextLevel.SetActive(false);
 
@@ -237,13 +233,6 @@ public class PlayerController : MonoBehaviour
             isHit = true;
             _playerRigidbody.constraints = RigidbodyConstraints.FreezePositionY;
             _playerRigidbody.freezeRotation = true;
-        }
-
-        if (other.CompareTag("Key"))
-        {
-            _hasKey = true;
-            Debug.Log("Has Key!");
-            Destroy(other.gameObject);
         }
     }
     private void OnTriggerExit(Collider other)
