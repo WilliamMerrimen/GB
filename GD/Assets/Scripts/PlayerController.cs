@@ -34,10 +34,11 @@ public class PlayerController : MonoBehaviour
     public GameObject stepRayUpper;
     public GameObject stepRayLower;
 
+    private Vector3 inputVector;
     private bool _teleportMenuCunOpen = false;
     private MeshRenderer _meshRenderer;
     public float stepHeight = 0.4f;
-    public float stepSmooth = 0.1f;
+    public float stepSmooth;
     public bool isHit = false;
     public bool _hasKey = false;
 
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour
     }
     public void moveAndAnimation()
     {
-        Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
+        inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
         Vector3 moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
         moveDirection.Normalize();
         if (moveDirection != Vector3.zero)
@@ -110,7 +111,7 @@ public class PlayerController : MonoBehaviour
             else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
             {
                 Debug.Log("Shift!!!");
-                _playerPosition.position -= new Vector3(0, 1f, 0) * Time.fixedDeltaTime;
+                _playerPosition.position -= new Vector3(0, 1f, 0);
                 _playerAnivator.speed = 1.0f;
                 _playerAnivator.SetBool("isClimbing", false);
                 _playerAnivator.Play("Climbing Ladder Down");
@@ -152,8 +153,11 @@ public class PlayerController : MonoBehaviour
             RaycastHit hitUpper;
             if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
             {
-                _playerPosition.position += new Vector3(0f, stepSmooth, 0f);
-                Debug.Log("123qwe123qwe");
+                if(inputVector != Vector3.zero)
+                {
+                    _playerPosition.position += new Vector3(0f, stepSmooth, 0f) * Time.fixedDeltaTime;
+                    Debug.Log("123qwe123qwe");
+                }
             }
         }
     }
