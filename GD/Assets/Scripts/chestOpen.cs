@@ -24,16 +24,18 @@ public class chestOpen : MonoBehaviour
     {
         if (context.performed)
         {
-            if (cunOpenChest)
+            if (cunOpenChest && scriptToCheckPlayer._hasKey)
             {
+                scriptToCheckPlayer.tipPressE.SetActive(true);
                 clickOnChest += 1;
                 Debug.Log("Chest Open");
                 //Instantiate(item, pointSpawn.transform.position, Quaternion.identity);
                 if (clickOnChest == moneyInChest)
                 {
-                    Destroy(gameObject);
+                    //Destroy(gameObject);
                     clickOnChest = 0;
                     scriptToCheckPlayer._hasKey = false;
+                    scriptToCheckPlayer.tipPressE.SetActive(false);
                     Debug.Log(scriptToCheckPlayer._hasKey);
                 }
             }
@@ -43,7 +45,7 @@ public class chestOpen : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            scriptToCheckPlayer = CheckPlayer[0].GetComponent<PlayerController>();
+            scriptToCheckPlayer = other.GetComponent<PlayerController>();
             if (scriptToCheckPlayer._hasKey)
             { 
                 cunOpenChest = true;

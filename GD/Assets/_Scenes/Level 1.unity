@@ -13091,7 +13091,7 @@ MonoBehaviour:
   pointSpawn: {fileID: 0}
   CheckPlayer: []
   scriptToCheckPlayer: {fileID: 0}
-  moneyInChest: 0
+  moneyInChest: 2
 --- !u!1001 &1027409206
 PrefabInstance:
   m_ObjectHideFlags: 0
