@@ -86,9 +86,10 @@ public class PlayerController : MonoBehaviour
         }
         if (!isHit)
         {
+            
             _playerAnivator.SetBool("isClimbing", false);
             _playerAnivator.speed = 1.0f;
-            _playerPosition.position += new Vector3(inputVector.x, 0, inputVector.y) * speed * Time.fixedDeltaTime;
+            _playerPosition.position += new Vector3(inputVector.x, 0f, inputVector.y) * speed * Time.fixedDeltaTime;
             if (inputVector.x != 0 || inputVector.y != 0)
             {
                 _playerAnivator.SetBool("isRunning", true);
@@ -98,17 +99,16 @@ public class PlayerController : MonoBehaviour
             {
                 _playerAnivator.SetBool("isRunning", false);
             }
-                
         }
         else
         {
             _playerAnivator.SetBool("isClimbing", true);
-            _playerAnivator.SetBool("isClimbingDown", false);
+            
             if (!Input.GetKey(KeyCode.LeftShift))
             {
-                Vector3 climbVec = new Vector3(inputVector.x * (speed-2), Math.Abs(inputVector.x != 0 ? inputVector.x  : inputVector.y) * (speed-2), inputVector.y * (speed-2)) * Time.fixedDeltaTime;
+                Vector3 climbVec = new Vector3(inputVector.x * (speed-2f), Math.Abs(inputVector.x != 0f ? inputVector.x  : inputVector.y) * (speed-2f), inputVector.y * (speed-2f)) * Time.fixedDeltaTime;
                 _playerPosition.position += climbVec;
-               if(climbVec.y == 0)
+                if(climbVec.y == 0)
                 {
                     _playerAnivator.speed = 0.0f;
                 }
@@ -121,7 +121,9 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Shift!!!");
                 _playerPosition.position -= new Vector3(0, 1f, 0) * Time.fixedDeltaTime;
-                _playerAnivator.speed = -1.1f;
+                _playerAnivator.speed = 1.0f;
+                _playerAnivator.SetBool("isClimbing", false);
+                _playerAnivator.Play("Climbing Ladder Down");
             }   
         }
         playerPos = _playerPosition;
