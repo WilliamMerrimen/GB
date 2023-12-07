@@ -31,9 +31,13 @@ public class PlayerController : MonoBehaviour
     public GameObject teleportMenu;
     public GameObject tipPressE;
     public GameObject nextLevel;
+    public GameObject stepRayUpper;
+    public GameObject stepRayLower;
 
     private bool _teleportMenuCunOpen = false;
     private MeshRenderer _meshRenderer;
+    public float stepHeight = 0.4f;
+    public float stepSmooth = 0.1f;
     public bool isHit = false;
     public bool _hasKey = false;
 
@@ -56,26 +60,12 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (smallPlayer)
-        {
-            transform.localScale = new Vector3(0.8f - sizeSmallPlayer, 0.8f - sizeSmallPlayer, 0.8f - sizeSmallPlayer);
-        }
-        else if (smallPlayer == false)
-        {
-            transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        }
-        if (_teleportMenuCunOpen == false)
-            teleportMenu.SetActive(false);
-        
-        if (invisible & canToInvis)
-        {
-            _meshRenderer.material = materialInvisible;
-            StartCoroutine(WaitForInvOne());
-        }
-        
-        else if (invisible == false)
-            _meshRenderer.material = materialVisible;
-        
+        smallLogic();
+        moveAndAnimation();
+        stepClimb();
+    }
+    public void moveAndAnimation()
+    {
         Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
         Vector3 moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
         moveDirection.Normalize();
@@ -128,6 +118,45 @@ public class PlayerController : MonoBehaviour
         }
         playerPos = _playerPosition;
     }
+    public void smallLogic()
+    {
+        if (smallPlayer)
+        {
+            transform.localScale = new Vector3(0.8f - sizeSmallPlayer, 0.8f - sizeSmallPlayer, 0.8f - sizeSmallPlayer);
+        }
+        else if (smallPlayer == false)
+        {
+            transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        }
+
+        if (_teleportMenuCunOpen == false)
+        {
+            teleportMenu.SetActive(false);
+        }
+
+        if (invisible & canToInvis)
+        {
+            _meshRenderer.material = materialInvisible;
+            StartCoroutine(WaitForInvOne());
+        }
+        else if (invisible == false)
+        {
+            _meshRenderer.material = materialVisible;
+        }
+    }
+    public void stepClimb()
+    {
+        RaycastHit hitLower;
+        if(Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLower, 0.1f))
+        {
+            RaycastHit hitUpper;
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
+            {
+                _playerPosition.position += new Vector3(0f, stepSmooth, 0f);
+                Debug.Log("123qwe123qwe");
+            }
+        }
+    }
     private IEnumerator WaitForInvOne()
     {
         yield return new WaitForSeconds(delayToInvis);
@@ -155,6 +184,7 @@ public class PlayerController : MonoBehaviour
             _playerAnivator.Play("Jumping Up");
       }
     }
+    
     public void Big()
     {
         smallPlayer = false;
