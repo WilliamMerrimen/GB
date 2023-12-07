@@ -26,7 +26,7 @@ public class platformMoved : MonoBehaviour
         if (other.collider.CompareTag("Player"))
         {
             if (forward)
-                other.gameObject.transform.position = new Vector3(transform.position.x, other.gameObject.transform.position.y,other.gameObject.transform.position.z);
+                other.gameObject.transform.position = new Vector3(transform.position.x, other.gameObject.transform.position.y, other.gameObject.transform.position.z);
         }
     }
 }
