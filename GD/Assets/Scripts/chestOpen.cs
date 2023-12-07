@@ -1,12 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.EventSystems;
 public class chestOpen : MonoBehaviour
 {
-    public GameObject player;
-    public float distanceToOpen;
     public bool cunOpenChest = false;
     public GameObject item;
     public Transform pointSpawn;
@@ -22,7 +17,7 @@ public class chestOpen : MonoBehaviour
     {
         CheckPlayer = GameObject.FindGameObjectsWithTag("Player");
         scriptToCheckPlayer = CheckPlayer[0].GetComponent<PlayerController>();
-        _playerInput = player.GetComponent<PlayerInput>();
+        _playerInput = CheckPlayer[0].GetComponent<PlayerInput>();
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.Enable();
         _playerInputActions.PlayerAction.InteractionButton.performed += InteractionButton;
@@ -35,8 +30,8 @@ public class chestOpen : MonoBehaviour
             {
                 clickOnChest += 1;
                 Debug.Log("Chest Open");
-                Instantiate(item, pointSpawn.transform.position, Quaternion.identity);
-                if(clickOnChest == moneyInChest)
+                //Instantiate(item, pointSpawn.transform.position, Quaternion.identity);
+                if (clickOnChest == moneyInChest)
                 {
                     Destroy(gameObject);
                     clickOnChest = 0;
@@ -48,14 +43,22 @@ public class chestOpen : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            cunOpenChest = true;
-            scriptToCheckPlayer.tipPressE.SetActive(true);
+            if (scriptToCheckPlayer._hasKey)
+            {
+                cunOpenChest = true;
+                scriptToCheckPlayer.tipPressE.SetActive(true);
+            }
+
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            if (scriptToCheckPlayer._hasKey)
+            {
+
+            }
             cunOpenChest = false;
             scriptToCheckPlayer.tipPressE.SetActive(false);
         }

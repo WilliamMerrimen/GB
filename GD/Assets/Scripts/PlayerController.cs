@@ -1,11 +1,11 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     private Animator _playerAnivator;
-    
+
     private Rigidbody _playerRigidbody;
     private PlayerInput _playerInput;
     private PlayerInputActions _playerInputActions;
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public bool invisible = false;
     public bool canToInvis = true;
     private bool _isChest = false;
-    
+
     public GameObject teleportMenu;
     public GameObject tipPressE;
     public GameObject nextLevel;
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     public GameObject keyLocateDel;
 
     public int Money = 0;
-    
+
     private void Awake()
     {
         _meshRenderer = gameObject.GetComponentInChildren<MeshRenderer>();
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         _playerAnivator = GetComponent<Animator>();
     }
     private void FixedUpdate()
-    { 
+    {
         if (smallPlayer)
         {
             transform.localScale = new Vector3(0.8f - sizeSmallPlayer, 0.8f - sizeSmallPlayer, 0.8f - sizeSmallPlayer);
@@ -68,16 +68,16 @@ public class PlayerController : MonoBehaviour
         }
         if (_teleportMenuCunOpen == false)
             teleportMenu.SetActive(false);
-        
+
         if (invisible & canToInvis)
         {
             _meshRenderer.material = materialInvisible;
             StartCoroutine(WaitForInvOne());
         }
-        
+
         else if (invisible == false)
             _meshRenderer.material = materialVisible;
-        
+
         Vector2 inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
         Vector3 moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
         moveDirection.Normalize();
@@ -92,25 +92,25 @@ public class PlayerController : MonoBehaviour
             if (inputVector.x != 0 || inputVector.y != 0)
             {
                 _playerAnivator.SetBool("isRunning", true);
-                
+
             }
-            if(inputVector.x == 0 && inputVector.y == 0)
+            if (inputVector.x == 0 && inputVector.y == 0)
             {
                 _playerAnivator.SetBool("isRunning", false);
             }
-                
+
         }
         else
         {
             if (!Input.GetKey(KeyCode.LeftShift))
-                _playerPosition.position += new Vector3(inputVector.x * (speed-2), Math.Abs(inputVector.x != 0 ? inputVector.x  : inputVector.y) * speed, inputVector.y * (speed-2)) * Time.fixedDeltaTime;
-            
-            
+                _playerPosition.position += new Vector3(inputVector.x * (speed - 2), Math.Abs(inputVector.x != 0 ? inputVector.x : inputVector.y) * speed, inputVector.y * (speed - 2)) * Time.fixedDeltaTime;
+
+
             else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
             {
                 Debug.Log("Shift!!!");
                 _playerPosition.position -= new Vector3(0, 0.5f, 0) * Time.fixedDeltaTime;
-            }   
+            }
         }
         playerPos = _playerPosition;
     }
@@ -130,17 +130,17 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.15f);
         _playerRigidbody.AddForce(Vector3.up * jumpForse, ForceMode.Impulse);
-         Debug.Log("Jump!");
+        Debug.Log("Jump!");
     }
 
     public void Jump(InputAction.CallbackContext context)
-    { 
-      if (context.performed && onGraund) 
-      {
+    {
+        if (context.performed && onGraund)
+        {
             StartCoroutine(JumpTimeStabil());
-         onGraund = false;
-         _playerAnivator.Play("Jumping Up");
-      }
+            onGraund = false;
+            _playerAnivator.Play("Jumping Up");
+        }
     }
     public void Big()
     {
@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour
             else if (!smallPlayer)
             {
                 Debug.Log("Small");
-                
+
                 Invoke("Small", 0.2f);
             }
         }
@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
             invisible = true;
-        
+
     }
     public void InteractionButton(InputAction.CallbackContext context)
     {
@@ -188,7 +188,8 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Chest opened!");
             }
-            if (keyLocate) {
+            if (keyLocate)
+            {
                 _hasKey = true;
                 Destroy(keyLocateDel);
                 tipPressE.SetActive(false);
@@ -199,11 +200,11 @@ public class PlayerController : MonoBehaviour
     }
     public void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Graund"))
+        if (other.gameObject.CompareTag("Graund"))
             onGraund = true;
         if (other.collider.CompareTag("NextLevel"))
             nextLevel.SetActive(true);
-        
+
         if (other.collider.CompareTag("Teleport"))
         {
             _teleportMenuCunOpen = true;

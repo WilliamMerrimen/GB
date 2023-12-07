@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 public class needlsTrap : MonoBehaviour
 {
@@ -10,10 +9,10 @@ public class needlsTrap : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
-        if(up)
+
+        if (up)
             transform.position += new Vector3(0f, 0.7f, 0f) * Time.fixedDeltaTime;
-        else if(!up)
+        else if (!up)
             transform.position -= new Vector3(0f, 0.7f, 0f) * Time.fixedDeltaTime;
     }
     private IEnumerator delayMoveUp()

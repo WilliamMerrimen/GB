@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class dropedItemFhis : MonoBehaviour
@@ -29,10 +27,10 @@ public class dropedItemFhis : MonoBehaviour
         chestPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         playerPos = scriptToCheckPlayer.playerPos.position;
         delta = gameObject.transform.position - playerPos;
-        
+
         delta.Normalize();
-        
-        if(flag == 1)
+
+        if (flag == 1)
         {
             gameObject.GetComponent<Rigidbody>().AddForce(-delta * dropForse, ForceMode.Impulse);
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * (dropForse - 2), ForceMode.Impulse);
@@ -44,7 +42,7 @@ public class dropedItemFhis : MonoBehaviour
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, playerPos, speed * Time.fixedDeltaTime);
             StartCoroutine(TimeToFastGo());
         }
-        
+
     }
     private IEnumerator TimeToGo()
     {
@@ -53,12 +51,12 @@ public class dropedItemFhis : MonoBehaviour
     }
     private IEnumerator TimeToFastGo()
     {
-        yield return new WaitForSeconds(timeToGo+3);
+        yield return new WaitForSeconds(timeToGo + 3);
         speed += 10;
         colider = gameObject.GetComponent<Collider>();
         colider.isTrigger = true;
     }
-    
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Player"))
