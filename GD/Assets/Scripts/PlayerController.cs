@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public float kdInvisible;
     public bool invisible = false;
     public bool canToInvis = true;
+    public GameObject keyLocateDel;
+    public bool keyLocate = false;
     private bool _isChest = false;
     
     public GameObject teleportMenu;
@@ -231,9 +233,15 @@ public class PlayerController : MonoBehaviour
         {
             if (_teleportMenuCunOpen)
                 teleportMenu.SetActive(true);
-            if (_isChest)
+            if (_isChest && _hasKey)
             {
                 Debug.Log("Chest opened!");
+            }
+            if (keyLocate)
+            {
+                _hasKey = true;
+                Destroy(keyLocateDel);
+                tipPressE.SetActive(false);
             }
         }
     }
@@ -241,15 +249,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Graund"))
             onGraund = true;
-        if (other.collider.CompareTag("NextLevel") && _hasKey)
-            nextLevel.SetActive(true);
-
-        if (other.collider.CompareTag("Chest"))
+        if (other.collider.CompareTag("NextLevel"))
         {
-            tipPressE.SetActive(true);
-            _isChest = true;
+            nextLevel.SetActive(true);
         }
-
+            
         if (other.collider.CompareTag("Teleport"))
         {
             _teleportMenuCunOpen = true;
@@ -258,11 +262,6 @@ public class PlayerController : MonoBehaviour
     }
     public void OnCollisionExit(Collision other)
     {
-        if (other.collider.CompareTag("Chest"))
-        {
-            tipPressE.SetActive(false);
-            _isChest = false;
-        }
         if (other.collider.CompareTag("NextLevel"))
         {
             nextLevel.SetActive(false);
@@ -275,7 +274,9 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("needlesTrap")){
+        
+        if (other.CompareTag("needlesTrap"))
+        {
             Debug.Log("You dead");
         }
         if (other.CompareTag("Ladder"))

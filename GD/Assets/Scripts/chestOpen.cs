@@ -10,13 +10,11 @@ public class chestOpen : MonoBehaviour
     public int moneyInChest;
 
     private int clickOnChest = 0;
-    private float _distance;
     private PlayerInput _playerInput;
     private PlayerInputActions _playerInputActions;
     private void Awake()
     {
         CheckPlayer = GameObject.FindGameObjectsWithTag("Player");
-        scriptToCheckPlayer = CheckPlayer[0].GetComponent<PlayerController>();
         _playerInput = CheckPlayer[0].GetComponent<PlayerInput>();
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.Enable();
@@ -35,6 +33,8 @@ public class chestOpen : MonoBehaviour
                 {
                     Destroy(gameObject);
                     clickOnChest = 0;
+                    scriptToCheckPlayer._hasKey = false;
+                    Debug.Log(scriptToCheckPlayer._hasKey);
                 }
             }
         }
@@ -43,8 +43,9 @@ public class chestOpen : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            scriptToCheckPlayer = CheckPlayer[0].GetComponent<PlayerController>();
             if (scriptToCheckPlayer._hasKey)
-            {
+            { 
                 cunOpenChest = true;
                 scriptToCheckPlayer.tipPressE.SetActive(true);
             }
@@ -55,10 +56,6 @@ public class chestOpen : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (scriptToCheckPlayer._hasKey)
-            {
-
-            }
             cunOpenChest = false;
             scriptToCheckPlayer.tipPressE.SetActive(false);
         }
