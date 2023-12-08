@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5871504150912458738}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3489658709853107119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6109394697895698752}
+  m_Layer: 0
+  m_Name: stepRayHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6109394697895698752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3489658709853107119}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.584, z: 0.124}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5871504150912458738}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7251907869790994731
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +122,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6109394697895698752}
   - {fileID: 5444432900629067180}
   - {fileID: 3883962228908541076}
   m_Father: {fileID: 469742228597437049}
@@ -230,6 +262,8 @@ MonoBehaviour:
   kdInvisible: 3
   invisible: 1
   canToInvis: 1
+  keyLocateDel: {fileID: 0}
+  keyLocate: 0
   teleportMenu: {fileID: 0}
   tipPressE: {fileID: 0}
   nextLevel: {fileID: 0}
