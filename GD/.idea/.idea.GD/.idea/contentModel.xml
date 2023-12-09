@@ -10,6 +10,28 @@
         </e>
         <e p="_Scenes" t="Include" />
         <e p="Animations" t="Include" />
+        <e p="HYPEPOLY - Runner Pack Standart" t="Include">
+          <e p="Animations" t="Include" />
+          <e p="Demo" t="Include">
+            <e p="Animations" t="Include" />
+            <e p="Textures" t="Include" />
+          </e>
+          <e p="Materials" t="Include" />
+          <e p="Models" t="Include" />
+          <e p="Prefabs" t="Include">
+            <e p="Collected" t="Include" />
+            <e p="Decor" t="Include" />
+            <e p="Pillars" t="Include" />
+            <e p="Road" t="Include" />
+            <e p="Traps" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="HYPEPOLY_Dispenser.cs" t="Include" />
+            <e p="HYPEPOLY_Moover.cs" t="Include" />
+            <e p="HYPEPOLY_Rotator.cs" t="Include" />
+          </e>
+          <e p="Textures" t="Include" />
+        </e>
         <e p="InputSystems" t="Include">
           <e p="PlayerInputActions.cs" t="Include" />
         </e>
@@ -84,6 +106,7 @@
           <e p="needlsTrap.cs" t="Include" />
           <e p="platformMoved.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
+          <e p="TakeKey.cs" t="Include" />
           <e p="Teleport.cs" t="Include" />
         </e>
         <e p="spikes" t="Include" />
