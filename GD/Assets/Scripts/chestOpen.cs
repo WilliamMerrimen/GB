@@ -26,17 +26,18 @@ public class chestOpen : MonoBehaviour
         {
             if (cunOpenChest && scriptToCheckPlayer._hasKey)
             {
-                scriptToCheckPlayer.tipPressE.SetActive(true);
                 clickOnChest += 1;
-                Debug.Log("Chest Open");
+                Debug.Log(scriptToCheckPlayer._hasKey);
                 //Instantiate(item, pointSpawn.transform.position, Quaternion.identity);
                 if (clickOnChest == moneyInChest)
                 {
+                    Debug.Log("Chest Open");
                     //Destroy(gameObject);
                     clickOnChest = 0;
+                    Debug.Log(clickOnChest);
+                    cunOpenChest = false;
                     scriptToCheckPlayer._hasKey = false;
                     scriptToCheckPlayer.tipPressE.SetActive(false);
-                    Debug.Log(scriptToCheckPlayer._hasKey);
                 }
             }
         }
