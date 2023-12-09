@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class needlTraps : sceneControl 
 {
-  
-    public void resetareScene() { 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            restartScene();
+        }
     }
 }

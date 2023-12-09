@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
     public float stepSmooth;
     public bool isHit = false;
     public bool _hasKey = false;
-
     public int Money = 0;
     
     private void Awake()
@@ -54,7 +53,6 @@ public class PlayerController : MonoBehaviour
         _playerPosition = GetComponent<Transform>();
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.Enable();
-        _playerInputActions.PlayerAction.Jump.performed += Jump;
         _playerInputActions.PlayerAction.Skill.performed += Skill;
         _playerInputActions.PlayerAction.InteractionButton.performed += InteractionButton;
         _playerInputActions.PlayerAction.Resizeble.performed += Resizeble;
@@ -63,6 +61,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        Jump();
         smallLogic();
         moveAndAnimation();
         stepClimb();
@@ -75,7 +74,7 @@ public class PlayerController : MonoBehaviour
         if (moveDirection != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
         }
         if (!isHit)
         {
@@ -165,32 +164,43 @@ public class PlayerController : MonoBehaviour
     }
     private IEnumerator WaitForInvOne()
     {
-        yield return new WaitForSeconds(delayToInvis);
+        float time = delayToInvis;
+        yield return new WaitForSeconds(time);
         invisible = false;
         canToInvis = false;
+        time = delayToInvis;
         StartCoroutine(KDInvisible());
     }
     private IEnumerator KDInvisible()
     {
-        yield return new WaitForSeconds(kdInvisible);
+        float time = kdInvisible;
+        yield return new WaitForSeconds(time);
         canToInvis = true;
+        time = kdInvisible;
     }
     private IEnumerator JumpTimeStabil()
     {
-        yield return new WaitForSeconds(0.15f);
-        _playerRigidbody.AddForce(Vector3.up * jumpForse, ForceMode.Impulse);
-         Debug.Log("Jump!");
+        float time = 0.15f;
+        int countJump = 1;
+        if(countJump != 0)
+        {
+            yield return new WaitForSeconds(time);
+            _playerRigidbody.AddForce(Vector3.up * jumpForse, ForceMode.Impulse);
+            Debug.Log("Jump!");
+            time = 0.15f;
+            countJump = 0;
+        }
+        
     }
-    public void Jump(InputAction.CallbackContext context)
+    public void Jump()
     { 
-      if (context.performed && onGraund) 
-      {
+        if (Input.GetKeyDown(KeyCode.Space) && onGraund) 
+        {
             StartCoroutine(JumpTimeStabil());
             onGraund = false;
             _playerAnivator.Play("Jumping Up");
-      }
+        }
     }
-    
     public void Big()
     {
         smallPlayer = false;
