@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public abstract class sceneControl : MonoBehaviour
+public class sceneControl : MonoBehaviour
 {
-    public void restartScene() {
+    protected virtual void restartScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public void mainActive() {
+    public  void mainActive() {
         SceneManager.LoadScene(0);
     }
-    public void sceneLoad( int sceneId) {
+    public  void sceneLoad( int sceneId) {
         SceneManager.LoadScene(sceneId);
     }
 
