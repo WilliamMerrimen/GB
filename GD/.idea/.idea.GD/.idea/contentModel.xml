@@ -104,8 +104,10 @@
           <e p="dropedItemFhis.cs" t="Include" />
           <e p="Ladder.cs" t="Include" />
           <e p="needlsTrap.cs" t="Include" />
+          <e p="needlTraps.cs" t="Include" />
           <e p="platformMoved.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
+          <e p="sceneControl.cs" t="Include" />
           <e p="TakeKey.cs" t="Include" />
           <e p="Teleport.cs" t="Include" />
         </e>

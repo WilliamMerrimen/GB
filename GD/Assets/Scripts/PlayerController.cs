@@ -250,8 +250,14 @@ public class PlayerController : MonoBehaviour
             if (keyLocate)
             {
                 _hasKey = true;
-                Destroy(keyLocateDel);
-                tipPressE.SetActive(false);
+                if(keyLocateDel != null) 
+                    keyLocateDel.SetActive(false);
+                if(tipPressE != null)
+                    tipPressE.SetActive(false);
+                else
+                {
+                    Debug.Log("bug in tipPressE");
+                }
             }
         }
     }
