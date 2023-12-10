@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class needlTraps : sceneControl 
 {
     private void OnTriggerEnter(Collider other)
@@ -12,4 +11,5 @@ public class needlTraps : sceneControl
             restartScene();
         }
     }
+
 }
