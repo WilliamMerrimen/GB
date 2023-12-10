@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour
         _playerInputActions.PlayerAction.Resizeble.performed += Resizeble;
         nextLevel.SetActive(false);
         _playerAnivator = GetComponent<Animator>();
+
+        //keyLocate = false;    
     }
     private void FixedUpdate()
     {
@@ -241,6 +243,9 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
+            
+            Debug.Log(keyLocate + "Key");
+            
             if (_teleportMenuCunOpen)
                 teleportMenu.SetActive(true);
             if (_isChest && _hasKey)
@@ -250,13 +255,12 @@ public class PlayerController : MonoBehaviour
             if (keyLocate)
             {
                 _hasKey = true;
-                if(keyLocateDel != null) 
-                    keyLocateDel.SetActive(false);
+                //keyLocateDel.SetActive(false);
                 if(tipPressE != null)
                     tipPressE.SetActive(false);
                 else
                 {
-                    Debug.Log("bug in tipPressE");
+                    Debug.Log("bug in tipPressE " + keyLocate);
                 }
             }
         }
