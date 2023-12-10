@@ -14,6 +14,7 @@ public class TakeKey : MonoBehaviour
             scrptPlayer.tipPressE.SetActive(true);
         }
     }
+
     public void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -23,4 +24,5 @@ public class TakeKey : MonoBehaviour
             scrptPlayer.tipPressE.SetActive(false);
         }
     }
+
 }

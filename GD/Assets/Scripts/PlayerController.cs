@@ -5,7 +5,6 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     private Animator _playerAnivator;
-    
     private Rigidbody _playerRigidbody;
     private PlayerInput _playerInput;
     private PlayerInputActions _playerInputActions;
@@ -58,9 +57,8 @@ public class PlayerController : MonoBehaviour
         _playerInputActions.PlayerAction.Resizeble.performed += Resizeble;
         nextLevel.SetActive(false);
         _playerAnivator = GetComponent<Animator>();
-
-        //keyLocate = false;    
     }
+
     private void FixedUpdate()
     {
         Jump();
@@ -68,6 +66,7 @@ public class PlayerController : MonoBehaviour
         moveAndAnimation();
         stepClimb();
     }
+
     public void moveAndAnimation()
     {
         inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
@@ -80,16 +79,15 @@ public class PlayerController : MonoBehaviour
         }
         if (!isHit)
         {
-            
             _playerAnivator.SetBool("isClimbing", false);
             _playerAnivator.speed = 1.0f;
             _playerPosition.position += new Vector3(inputVector.x, 0f, inputVector.y) * speed * Time.fixedDeltaTime;
             if (inputVector.x != 0 || inputVector.y != 0)
             {
                 _playerAnivator.SetBool("isRunning", true);
-                
+
             }
-            if(inputVector.x == 0 && inputVector.y == 0)
+            if (inputVector.x == 0 && inputVector.y == 0)
             {
                 _playerAnivator.SetBool("isRunning", false);
             }
@@ -97,7 +95,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             _playerAnivator.SetBool("isClimbing", true);
-            
             if (!Input.GetKey(KeyCode.LeftShift))
             {
                 Vector3 climbVec = new Vector3(inputVector.x * (speed-2f), Math.Abs(inputVector.x != 0f ? inputVector.x  : inputVector.y) * (speed-2f), inputVector.y * (speed-2f)) * Time.fixedDeltaTime;
@@ -122,6 +119,7 @@ public class PlayerController : MonoBehaviour
         }
         playerPos = _playerPosition;
     }
+
     public void smallLogic()
     {
         if (smallPlayer)
@@ -132,12 +130,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         }
-
         if (_teleportMenuCunOpen == false)
         {
             teleportMenu.SetActive(false);
         }
-
         if (invisible & canToInvis)
         {
             _meshRenderer.material = materialInvisible;
@@ -148,13 +144,14 @@ public class PlayerController : MonoBehaviour
             _meshRenderer.material = materialVisible;
         }
     }
+
     public void stepClimb()
     {
-        RaycastHit hitLower; 
-        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLower, 0.1f))
+        RaycastHit hitLower;
+        if(Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLower, 0.1f))
         {
             RaycastHit hitUpper;
-            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.1f))
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
             {
                 if(inputVector != Vector3.zero)
                 {
@@ -164,6 +161,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
     private IEnumerator WaitForInvOne()
     {
         float time = delayToInvis;
@@ -173,6 +171,7 @@ public class PlayerController : MonoBehaviour
         time = delayToInvis;
         StartCoroutine(KDInvisible());
     }
+
     private IEnumerator KDInvisible()
     {
         float time = kdInvisible;
@@ -180,6 +179,7 @@ public class PlayerController : MonoBehaviour
         canToInvis = true;
         time = kdInvisible;
     }
+
     private IEnumerator JumpTimeStabil()
     {
         float time = 0.15f;
@@ -192,8 +192,8 @@ public class PlayerController : MonoBehaviour
             time = 0.15f;
             countJump = 0;
         }
-        
     }
+
     public void Jump()
     { 
         if (Input.GetKeyDown(KeyCode.Space) && onGraund) 
@@ -203,14 +203,17 @@ public class PlayerController : MonoBehaviour
             _playerAnivator.Play("Jumping Up");
         }
     }
+
     public void Big()
     {
         smallPlayer = false;
     }
+
     public void Small()
     {
         smallPlayer = true;
     }
+
     public void Resizeble(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -228,26 +231,26 @@ public class PlayerController : MonoBehaviour
             else if (!smallPlayer)
             {
                 Debug.Log("Small");
-                
                 Invoke("Small", 0.2f);
             }
         }
     }
+
     public void Skill(InputAction.CallbackContext context)
     {
         if (context.performed)
             invisible = true;
-        
     }
+
     public void InteractionButton(InputAction.CallbackContext context)
     {
+        Debug.Log(keyLocate + "Key"+"locate");
         if (context.performed)
         {
-            
-            Debug.Log(keyLocate + "Key");
-            
             if (_teleportMenuCunOpen)
+            {
                 teleportMenu.SetActive(true);
+            }
             if (_isChest && _hasKey)
             {
                 Debug.Log("Chest opened!");
@@ -255,16 +258,20 @@ public class PlayerController : MonoBehaviour
             if (keyLocate)
             {
                 _hasKey = true;
-                //keyLocateDel.SetActive(false);
+                Destroy(keyLocateDel);
+                keyLocate = false;
                 if(tipPressE != null)
+                {
                     tipPressE.SetActive(false);
+                }
                 else
                 {
-                    Debug.Log("bug in tipPressE " + keyLocate);
+                    Debug.Log("bug is " + tipPressE);
                 }
             }
         }
     }
+
     public void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Graund"))
@@ -273,13 +280,13 @@ public class PlayerController : MonoBehaviour
         {
             nextLevel.SetActive(true);
         }
-            
         if (other.collider.CompareTag("Teleport"))
         {
             _teleportMenuCunOpen = true;
             tipPressE.SetActive(true);
         }
     }
+
     public void OnCollisionExit(Collision other)
     {
         if (other.collider.CompareTag("NextLevel"))
@@ -292,9 +299,9 @@ public class PlayerController : MonoBehaviour
             tipPressE.SetActive(false);
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        
         if (other.CompareTag("needlesTrap"))
         {
             Debug.Log("You dead");
@@ -307,6 +314,7 @@ public class PlayerController : MonoBehaviour
             _playerRigidbody.freezeRotation = true;
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Ladder"))
@@ -317,4 +325,5 @@ public class PlayerController : MonoBehaviour
             _playerRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
+
 }

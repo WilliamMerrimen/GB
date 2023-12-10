@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class chestOpen : MonoBehaviour
 {
     public bool cunOpenChest = false;
@@ -12,6 +13,7 @@ public class chestOpen : MonoBehaviour
     private int clickOnChest = 0;
     private PlayerInput _playerInput;
     private PlayerInputActions _playerInputActions;
+
     private void Awake()
     {
         CheckPlayer = GameObject.FindGameObjectsWithTag("Player");
@@ -20,6 +22,7 @@ public class chestOpen : MonoBehaviour
         _playerInputActions.Enable();
         _playerInputActions.PlayerAction.InteractionButton.performed += InteractionButton;
     }
+
     public void InteractionButton(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -42,6 +45,7 @@ public class chestOpen : MonoBehaviour
             }
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
