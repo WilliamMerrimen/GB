@@ -20,11 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="434e9809-b5a4-4e3a-9f01-e61edafe53f4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HYPEPOLY - Runner Pack Standart/Prefabs/Traps/Saw_Medium_5_0.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HYPEPOLY - Runner Pack Standart/Prefabs/Traps/Saw_Medium_5_0.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane100x100W100H100.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane100x100W100H100.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TakeKey.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TakeKey.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LowPolyWater_Pack/Scripts/LowPolyWater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LowPolyWater_Pack/Scripts/LowPolyWater.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PolygonPirates/Prefabs/Props/SM_Prop_Chest_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonPirates/Prefabs/Props/SM_Prop_Chest_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Blades_4_0 Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Blades_4_0 Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Spikes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Spikes.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level2.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +55,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/platformMoved.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AnimatorScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/dropedItemFhis.cs" />
-        <option value="$PROJECT_DIR$/Assets/LowPolyWater_Pack/Scripts/LowPolyWater.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Teleport.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/needlTraps.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TakeKey.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/LowPolyWater_Pack/Scripts/LowPolyWater.cs" />
       </list>
     </option>
   </component>
