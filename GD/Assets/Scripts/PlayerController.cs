@@ -243,10 +243,22 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
             invisible = true;
     }
-
+    public void DigKey()
+    {
+        _hasKey = true;
+        Destroy(keyLocateDel);
+        keyLocate = false;
+        if(tipPressE != null)
+        {
+            tipPressE.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("bug is " + tipPressE);
+        }
+    }
     public void InteractionButton(InputAction.CallbackContext context)
     {
-        Debug.Log(keyLocate + "Key"+"locate");
         if (context.performed)
         {
             if (_teleportMenuCunOpen)
@@ -259,17 +271,9 @@ public class PlayerController : MonoBehaviour
             }
             if (keyLocate)
             {
-                _hasKey = true;
-                Destroy(keyLocateDel);
-                keyLocate = false;
-                if(tipPressE != null)
-                {
-                    tipPressE.SetActive(false);
-                }
-                else
-                {
-                    Debug.Log("bug is " + tipPressE);
-                }
+                _playerAnivator.Play("digging");
+                _playerRigidbody.freezeRotation = true;
+                _playerRigidbody.constraints = RigidbodyConstraints.FreezeAll;
             }
         }
     }
