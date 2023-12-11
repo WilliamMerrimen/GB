@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     
     private void Awake()
     {
+        Application.targetFrameRate = -1;
         _meshRenderer = gameObject.GetComponentInChildren<MeshRenderer>();
         _playerRigidbody = GetComponent<Rigidbody>();
         _playerInput = GetComponent<PlayerInput>();
@@ -153,12 +154,22 @@ public class PlayerController : MonoBehaviour
             RaycastHit hitUpper;
             if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
             {
-                if(inputVector != Vector3.zero)
+                if(inputVector != Vector3.zero && onGraund)
                 {
                     _playerPosition.position += new Vector3(0f, stepSmooth, 0f) * Time.fixedDeltaTime;
                     Debug.Log("123qwe123qwe");
                 }
             }
+        }
+    }
+
+    public void Jump()
+    { 
+        if (Input.GetKeyDown(KeyCode.Space) && onGraund) 
+        {
+            StartCoroutine(JumpTimeStabil());
+            onGraund = false;
+            _playerAnivator.Play("Jumping Up");
         }
     }
 
@@ -194,16 +205,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Jump()
-    { 
-        if (Input.GetKeyDown(KeyCode.Space) && onGraund) 
-        {
-            StartCoroutine(JumpTimeStabil());
-            onGraund = false;
-            _playerAnivator.Play("Jumping Up");
-        }
-    }
-
+    
     public void Big()
     {
         smallPlayer = false;

@@ -14,6 +14,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _EMISSION
+  - _ISINNERALPHABLENDORCOLOR_ON
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -162,7 +163,7 @@ Material:
     - _RandomSpeed: 0.5
     - _ReflDistort: 0.9267696
     - _RefrDistort: 1.4393286
-    - _Shininess: 17.1
+    - _Shininess: 6.68
     - _ShoreTiling: 56.862743
     - _SkyBoxReflection: 0.426
     - _SmoothnessTextureChannel: 0
@@ -178,7 +179,7 @@ Material:
     - _WaveScale: 0.046289656
     - _WaveSpeed: 1
     - _ZWrite: 1
-    - _isInnerAlphaBlendOrColor: 0
+    - _isInnerAlphaBlendOrColor: 1
     m_Colors:
     - WaveSpeed: {r: 1.086165, g: 4.440575, b: 12.105146, a: -3.0206447}
     - _AnimationDirection: {r: 0, g: 0, b: 0, a: 0}
