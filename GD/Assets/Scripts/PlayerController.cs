@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using Cinemachine;
 public class PlayerController : MonoBehaviour
 {
     private Animator _playerAnivator;
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Transform _playerPosition;
     private Vector3 _inputVector;
 
+    public CinemachineVirtualCamera cine;
     public Transform playerPos;
     public float rotationSpeed;
     public float speed = 5f;
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
     public GameObject stepRayUpper;
     public GameObject stepRayLower;
 
+    private bool stopAnim = false;
     private Vector3 inputVector;
     private bool _teleportMenuCunOpen = false;
     private MeshRenderer _meshRenderer;
@@ -62,9 +65,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Jump();
         smallLogic();
-        moveAndAnimation();
+        if (stopAnim == false)
+        {
+            moveAndAnimation();
+            Jump();
+        }
         stepClimb();
     }
 
@@ -245,6 +251,8 @@ public class PlayerController : MonoBehaviour
     }
     public void DigKey()
     {
+        cine.m_Lens.FieldOfView = 65f;
+        stopAnim = false;
         _hasKey = true;
         Destroy(keyLocateDel);
         keyLocate = false;
@@ -272,8 +280,7 @@ public class PlayerController : MonoBehaviour
             if (keyLocate)
             {
                 _playerAnivator.Play("digging");
-                _playerRigidbody.freezeRotation = true;
-                _playerRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+                stopAnim = true;
             }
         }
     }
