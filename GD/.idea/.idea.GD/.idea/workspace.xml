@@ -23,8 +23,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane100x100W100H100.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane100x100W100H100.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TakeKey.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TakeKey.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane50x50W50H50.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Low Poly Water/Plane Meshes/Plane50x50W50H50.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/lvlCompleted.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/lvlCompleted.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +60,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/needlTraps.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TakeKey.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/lvlCompleted.cs" />
       </list>
     </option>
   </component>
@@ -111,6 +117,7 @@
       <workItem from="1701846127896" duration="767000" />
       <workItem from="1702083077169" duration="1291000" />
       <workItem from="1702198928286" duration="5294000" />
+      <workItem from="1702406029796" duration="2908000" />
     </task>
     <servers />
   </component>
