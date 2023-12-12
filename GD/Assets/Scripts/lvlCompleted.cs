@@ -8,14 +8,16 @@ public class lvlCompleted : MonoBehaviour
 {
     private PlayerController _playerController;
     public GameObject menuCanvas;
-    public TMP_Text lvlText;
+    public GameObject gameOverGb;
+    public GameObject lvlCopleteGb;
     public GameObject nextLvlButton;
 
     private void Start()
     {
         _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         nextLvlButton.SetActive(false);
-        lvlText.text = "Game Over";
+        gameOverGb.SetActive(true);
+        lvlCopleteGb.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,7 +25,8 @@ public class lvlCompleted : MonoBehaviour
         if (other.CompareTag("Player") && _playerController.hasMap)
         {
             _playerController.lvlConpleted = true;
-            lvlText.text = "Level Completed!";
+            gameOverGb.SetActive(false);
+            lvlCopleteGb.SetActive(true);
             nextLvlButton.SetActive(true);
             menuCanvas.SetActive(true);
         }

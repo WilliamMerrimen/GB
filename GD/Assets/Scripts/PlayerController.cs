@@ -63,7 +63,6 @@ public class PlayerController : MonoBehaviour
         _playerInputActions.PlayerAction.Skill.performed += Skill;
         _playerInputActions.PlayerAction.InteractionButton.performed += InteractionButton;
         _playerInputActions.PlayerAction.Resizeble.performed += Resizeble;
-        nextLevel.SetActive(false);
         _playerAnivator = GetComponent<Animator>();
         GameOver._gameOverScreen = gameOverGameObject;
         
