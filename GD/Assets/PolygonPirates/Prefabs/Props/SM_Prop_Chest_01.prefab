@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 478630}
   - component: {fileID: 3317910}
   - component: {fileID: 2301818}
+  - component: {fileID: 6239770377608894694}
+  - component: {fileID: 5405152093149424838}
+  - component: {fileID: 8313590682370399496}
   m_Layer: 0
   m_Name: SM_Prop_Chest_01
   m_TagString: Untagged
@@ -85,6 +88,66 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6239770377608894694
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153962}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.97363305, y: 0.8093594, z: 0.685014}
+  m_Center: {x: 5.8790006e-10, y: 0.4046797, z: 0.038124233}
+--- !u!65 &5405152093149424838
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153962}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.21, y: 1.69, z: 2.41}
+  m_Center: {x: 0, y: 0.87, z: 0.66}
+--- !u!114 &8313590682370399496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: febf0b5f58f1f5c47af0d64cb3e7229d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cunOpenChest: 0
+  item: {fileID: 0}
+  pointSpawn: {fileID: 0}
+  CheckPlayer: []
+  scriptToCheckPlayer: {fileID: 0}
+  moneyInChest: 1
 --- !u!1 &156102
 GameObject:
   m_ObjectHideFlags: 0

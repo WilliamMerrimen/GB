@@ -35,6 +35,7 @@ public class chestOpen : MonoBehaviour
                 if (clickOnChest == moneyInChest)
                 {
                     Debug.Log("Chest Open");
+                    scriptToCheckPlayer.hasMap = true;
                     //Destroy(gameObject);
                     clickOnChest = 0;
                     Debug.Log(clickOnChest);

@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public GameObject nextLevel;
     public GameObject stepRayUpper;
     public GameObject stepRayLower;
+    public GameObject gameOverGameObject;
 
     private bool stopAnim = false;
     private Vector3 inputVector;
@@ -46,6 +47,9 @@ public class PlayerController : MonoBehaviour
     public bool isHit = false;
     public bool _hasKey = false;
     public int Money = 0;
+
+    public bool hasMap = false;
+    public bool lvlConpleted = false;
     
     private void Awake()
     {
@@ -61,69 +65,87 @@ public class PlayerController : MonoBehaviour
         _playerInputActions.PlayerAction.Resizeble.performed += Resizeble;
         nextLevel.SetActive(false);
         _playerAnivator = GetComponent<Animator>();
+        GameOver._gameOverScreen = gameOverGameObject;
+        
+        hasMap = false;
+        lvlConpleted = false;
+        GameOver.GameOverOff();
     }
 
     private void FixedUpdate()
     {
-        smallLogic();
-        if (stopAnim == false)
+        if (!GameOver.GameOverBl && !lvlConpleted)
         {
-            moveAndAnimation();
-            Jump();
+            smallLogic();
+            if (stopAnim == false)
+            {
+                moveAndAnimation();
+                Jump();
+            }
+
+            stepClimb();
         }
-        stepClimb();
     }
 
     public void moveAndAnimation()
     {
-        inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
-        Vector3 moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
-        moveDirection.Normalize();
-        if (moveDirection != Vector3.zero)
+        if (!GameOver.GameOverBl)
         {
-            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
-        }
-        if (!isHit)
-        {
-            _playerAnivator.SetBool("isClimbing", false);
-            _playerAnivator.speed = 1.0f;
-            _playerPosition.position += new Vector3(inputVector.x, 0f, inputVector.y) * speed * Time.fixedDeltaTime;
-            if (inputVector.x != 0 || inputVector.y != 0)
+            inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
+            Vector3 moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
+            moveDirection.Normalize();
+            if (moveDirection != Vector3.zero)
             {
-                _playerAnivator.SetBool("isRunning", true);
+                Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+                transform.rotation =
+                    Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
+            }
 
-            }
-            if (inputVector.x == 0 && inputVector.y == 0)
+            if (!isHit)
             {
-                _playerAnivator.SetBool("isRunning", false);
-            }
-        }
-        else
-        {
-            _playerAnivator.SetBool("isClimbing", true);
-            if (!Input.GetKey(KeyCode.LeftShift))
-            {
-                Vector3 climbVec = new Vector3(inputVector.x * (speed-2f), Math.Abs(inputVector.x != 0f ? inputVector.x  : inputVector.y) * (speed-2f), inputVector.y * (speed-2f)) * Time.fixedDeltaTime;
-                _playerPosition.position += climbVec;
-                if(climbVec.y == 0)
-                {
-                    _playerAnivator.speed = 0.0f;
-                }
-                else
-                {
-                    _playerAnivator.speed = 1.0f;
-                }
-            }
-            else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
-            {
-                Debug.Log("Shift!!!");
-                _playerPosition.position -= new Vector3(0, 1f, 0);
-                _playerAnivator.speed = 1.0f;
                 _playerAnivator.SetBool("isClimbing", false);
-                _playerAnivator.Play("Climbing Ladder Down");
-            }   
+                _playerAnivator.speed = 1.0f;
+                _playerPosition.position += new Vector3(inputVector.x, 0f, inputVector.y) * speed * Time.fixedDeltaTime;
+                if (inputVector.x != 0 || inputVector.y != 0)
+                {
+                    _playerAnivator.SetBool("isRunning", true);
+
+                }
+
+                if (inputVector.x == 0 && inputVector.y == 0)
+                {
+                    _playerAnivator.SetBool("isRunning", false);
+                }
+            }
+            else
+            {
+                _playerAnivator.SetBool("isClimbing", true);
+                if (!Input.GetKey(KeyCode.LeftShift))
+                {
+                    Vector3 climbVec = new Vector3(inputVector.x * (speed - 2f),
+                        Math.Abs(inputVector.x != 0f ? inputVector.x : inputVector.y) * (speed - 2f),
+                        inputVector.y * (speed - 2f)) * Time.fixedDeltaTime;
+                    _playerPosition.position += climbVec;
+                    if (climbVec.y == 0)
+                    {
+                        _playerAnivator.speed = 0.0f;
+                    }
+                    else
+                    {
+                        _playerAnivator.speed = 1.0f;
+                    }
+                }
+                else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
+                {
+                    Debug.Log("Shift!!!");
+                    _playerPosition.position -= new Vector3(0, 1f, 0);
+                    _playerAnivator.speed = 1.0f;
+                    _playerAnivator.SetBool("isClimbing", false);
+                    _playerAnivator.Play("Climbing Ladder Down");
+                }
+            }
         }
+
         playerPos = _playerPosition;
     }
 
