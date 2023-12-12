@@ -6,6 +6,10 @@ public class needlTraps : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Animator animPl = other.GetComponent<Animator>();
+            GameObject map = other.GetComponent<PlayerController>().mapLvl;
+            Destroy(map);
+            animPl.Play("Mutant Dying");
             GameOver.gameOverOn();
         }
     }

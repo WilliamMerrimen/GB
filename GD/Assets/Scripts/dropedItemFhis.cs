@@ -42,13 +42,14 @@ public class dropedItemFhis : MonoBehaviour
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, playerPos, speed * Time.fixedDeltaTime);
             StartCoroutine(TimeToFastGo());
         }
-
     }
+
     private IEnumerator TimeToGo()
     {
         yield return new WaitForSeconds(timeToGo);
         cunToGo = true;
     }
+
     private IEnumerator TimeToFastGo()
     {
         yield return new WaitForSeconds(timeToGo + 3);
@@ -65,4 +66,5 @@ public class dropedItemFhis : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

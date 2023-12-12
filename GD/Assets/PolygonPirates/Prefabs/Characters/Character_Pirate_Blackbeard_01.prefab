@@ -5749,11 +5749,14 @@ MonoBehaviour:
   nextLevel: {fileID: 0}
   stepRayUpper: {fileID: 0}
   stepRayLower: {fileID: 0}
+  gameOverGameObject: {fileID: 0}
   stepHeight: 0.47
   stepSmooth: 0.1
   isHit: 0
   _hasKey: 0
   Money: 0
+  hasMap: 0
+  lvlCompleted: 0
 --- !u!54 &3517120294654509721
 Rigidbody:
   m_ObjectHideFlags: 0

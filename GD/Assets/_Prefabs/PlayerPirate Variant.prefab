@@ -247,6 +247,46 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 431542228507644939, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
+      propertyPath: cine
+      value: 
+      objectReference: {fileID: 1810197715724646071}
+    - target: {fileID: 431542228507644939, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
+      propertyPath: jumpForse
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 431542228507644939, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
+      propertyPath: stepSmooth
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 431542228507644939, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
+      propertyPath: stepRayLower
+      value: 
+      objectReference: {fileID: 7251907869790994731}
+    - target: {fileID: 431542228507644939, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
+      propertyPath: stepRayUpper
+      value: 
+      objectReference: {fileID: 1701472239873252101}
+    - target: {fileID: 431542228507644939, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
+      propertyPath: rotationSpeed
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702599912209942765, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.019
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702599912209942765, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.201
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551353884078488021, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.643
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551353884078488021, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.194
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 180156, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
@@ -296,5 +336,15 @@ PrefabInstance:
 --- !u!4 &469742228597437049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 441856, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
+  m_PrefabInstance: {fileID: 469742228597263481}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1701472239873252101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1231747613496121212, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
+  m_PrefabInstance: {fileID: 469742228597263481}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7251907869790994731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7072674346267495762, guid: bc4987e2fb189ec4d96488b047577016, type: 3}
   m_PrefabInstance: {fileID: 469742228597263481}
   m_PrefabAsset: {fileID: 0}

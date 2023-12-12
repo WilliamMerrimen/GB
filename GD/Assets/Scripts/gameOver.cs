@@ -16,4 +16,5 @@ public static class GameOver
         GameOverBl = false;
         _gameOverScreen.SetActive(false);
     }
+
 }

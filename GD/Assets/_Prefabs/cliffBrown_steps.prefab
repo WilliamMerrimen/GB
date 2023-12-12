@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1323218394016337953}
   m_Layer: 0
   m_Name: cliffBrown_steps
-  m_TagString: Graund
+  m_TagString: Steps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7977065166664796501}
   m_Layer: 0
   m_Name: collider1 (4)
-  m_TagString: Graund
+  m_TagString: Steps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 8653958229114793760}
   m_Layer: 0
   m_Name: collider1 (2)
-  m_TagString: Graund
+  m_TagString: Steps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 4579231595104486201}
   m_Layer: 0
   m_Name: collider1 (3)
-  m_TagString: Graund
+  m_TagString: Steps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 9004911050454980423}
   m_Layer: 0
   m_Name: collider1
-  m_TagString: Graund
+  m_TagString: Steps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 3491533022088085164}
   m_Layer: 0
   m_Name: collider1 (1)
-  m_TagString: Graund
+  m_TagString: Steps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 8037394557524156000}
   m_Layer: 0
   m_Name: colliders
-  m_TagString: Graund
+  m_TagString: Steps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
