@@ -24,8 +24,11 @@ public class lvlCompleted : MonoBehaviour
         {
             _playerController.lvlCompleted = true;
             lvlText.text = "Level Completed!";
+            _playerController.GetComponent<Animator>().Play("Idle");
+            _playerController.GetComponent<Animator>().SetBool("isRunning", false);
             nextLvlButton.SetActive(true);
             menuCanvas.SetActive(true);
         }
     }
+
 }

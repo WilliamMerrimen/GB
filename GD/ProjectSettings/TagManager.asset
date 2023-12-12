@@ -15,6 +15,7 @@ TagManager:
   - Wall
   - needlesTrap
   - GameOver
+  - Steps
   layers:
   - Default
   - TransparentFX

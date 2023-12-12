@@ -29,8 +29,8 @@ public class PlayerController : MonoBehaviour
     public bool canToInvis = true;
     public GameObject keyLocateDel;
     public bool keyLocate = false;
-    private bool _isChest = false;
-    
+
+    public GameObject mapLvl;
     public GameObject teleportMenu;
     public GameObject tipPressE;
     public GameObject nextLevel;
@@ -38,7 +38,8 @@ public class PlayerController : MonoBehaviour
     public GameObject stepRayLower;
     public GameObject gameOverGameObject;
 
-    private bool stopAnim = false;
+    public chestOpen scrptChestOpen;
+    public bool stopAnim = false;
     private Vector3 inputVector;
     private bool _teleportMenuCunOpen = false;
     private MeshRenderer _meshRenderer;
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour
     public bool isHit = false;
     public bool _hasKey = false;
     public int Money = 0;
+    public bool step;
 
     public bool hasMap = false;
     public bool lvlCompleted = false;
@@ -82,7 +84,6 @@ public class PlayerController : MonoBehaviour
                 moveAndAnimation();
                 Jump();
             }
-
             stepClimb();
         }
     }
@@ -145,8 +146,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-
-        playerPos = _playerPosition;
+        //playerPos = _playerPosition;
     }
 
     public void smallLogic()
@@ -180,14 +180,16 @@ public class PlayerController : MonoBehaviour
         if(Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLower, 0.1f))
         {
             RaycastHit hitUpper;
-            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.1f))
             {
-                if(inputVector != Vector3.zero && onGraund)
+                if(inputVector != Vector3.zero)
                 {
+                    
                     _playerPosition.position += new Vector3(0f, stepSmooth, 0f) * Time.fixedDeltaTime;
                     Debug.Log("123qwe123qwe");
                 }
             }
+            
         }
     }
 
@@ -199,6 +201,13 @@ public class PlayerController : MonoBehaviour
             onGraund = false;
             _playerAnivator.Play("Jumping Up");
         }
+    }
+
+    private IEnumerator JumpKD()
+    {
+        float time = 0.3f;
+        yield return new WaitForSeconds(time);
+        onGraund = true;
     }
 
     private IEnumerator WaitForInvOne()
@@ -233,7 +242,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+    public void ToChestAnim()
+    {
+        scrptChestOpen.ChestOpened();
+    }
     public void Big()
     {
         smallPlayer = false;
@@ -295,10 +307,7 @@ public class PlayerController : MonoBehaviour
             {
                 teleportMenu.SetActive(true);
             }
-            if (_isChest && _hasKey)
-            {
-                Debug.Log("Chest opened!");
-            }
+            
             if (keyLocate)
             {
                 _playerAnivator.Play("digging");
@@ -309,8 +318,10 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionEnter(Collision other)
     {
+        if (other.gameObject.CompareTag("Steps"))
+            onGraund = false;
         if (other.gameObject.CompareTag("Graund"))
-            onGraund = true;
+            StartCoroutine(JumpKD());
         if (other.collider.CompareTag("NextLevel"))
         {
             nextLevel.SetActive(true);
