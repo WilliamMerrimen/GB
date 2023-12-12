@@ -22,7 +22,7 @@ public class lvlCompleted : MonoBehaviour
     {
         if (other.CompareTag("Player") && _playerController.hasMap)
         {
-            _playerController.lvlConpleted = true;
+            _playerController.lvlCompleted = true;
             lvlText.text = "Level Completed!";
             nextLvlButton.SetActive(true);
             menuCanvas.SetActive(true);

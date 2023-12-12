@@ -6,6 +6,8 @@ public class needlTraps : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Rigidbody rbPl = other.GetComponent<Rigidbody>();
+            rbPl.constraints = RigidbodyConstraints.FreezeAll;
             GameOver.gameOverOn();
         }
     }

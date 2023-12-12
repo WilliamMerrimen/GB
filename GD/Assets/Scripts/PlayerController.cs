@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     public int Money = 0;
 
     public bool hasMap = false;
-    public bool lvlConpleted = false;
+    public bool lvlCompleted = false;
     
     private void Awake()
     {
@@ -68,13 +68,13 @@ public class PlayerController : MonoBehaviour
         GameOver._gameOverScreen = gameOverGameObject;
         
         hasMap = false;
-        lvlConpleted = false;
+        lvlCompleted = false;
         GameOver.GameOverOff();
     }
 
     private void FixedUpdate()
     {
-        if (!GameOver.GameOverBl && !lvlConpleted)
+        if (!GameOver.GameOverBl && !lvlCompleted)
         {
             smallLogic();
             if (stopAnim == false)

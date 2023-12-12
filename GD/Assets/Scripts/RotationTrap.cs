@@ -6,6 +6,8 @@ public class RotationTrap : MonoBehaviour
     {
         if (other.collider.CompareTag("Player"))
         {
+            Rigidbody rbPl = other.collider.GetComponent<Rigidbody>();
+            rbPl.constraints = RigidbodyConstraints.FreezeAll;
             GameOver.gameOverOn();
         }
     }
