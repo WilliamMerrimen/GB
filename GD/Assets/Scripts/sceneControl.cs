@@ -23,4 +23,8 @@ public class sceneControl : MonoBehaviour
         SceneManager.LoadScene(sceneId);
     }
 
+    public void quitGame()
+    {
+        quitGame();
+    }
 }

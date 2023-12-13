@@ -23,7 +23,8 @@ public class lvlCompleted : MonoBehaviour
         if (other.CompareTag("Player") && _playerController.hasMap)
         {
             _playerController.lvlCompleted = true;
-            win.SetActive(true);            
+            win.SetActive(true);
+            over.SetActive(false);
             _playerController.GetComponent<Animator>().Play("Idle");
             _playerController.GetComponent<Animator>().SetBool("isRunning", false);
             nextLvlButton.SetActive(true);
