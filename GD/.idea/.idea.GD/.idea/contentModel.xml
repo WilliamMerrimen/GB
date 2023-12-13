@@ -11,7 +11,10 @@
         <e p="_Scenes" t="Include">
           <e p="Level 1_Profiles" t="Include" />
         </e>
-        <e p="Animations" t="Include" />
+        <e p="Animations" t="Include">
+          <e p="ChestAnim" t="Include" />
+          <e p="MapLut" t="Include" />
+        </e>
         <e p="BOXOPHOBIC" t="Include">
           <e p="Skybox Cubemap Extended" t="Include">
             <e p="Core" t="Include">
@@ -214,8 +217,8 @@
         <e p="Scripts" t="Include">
           <e p="chestOpen.cs" t="Include" />
           <e p="dropedItemFhis.cs" t="Include" />
+          <e p="drowning.cs" t="Include" />
           <e p="gameOver.cs" t="Include" />
-          <e p="Ladder.cs" t="Include" />
           <e p="lvlCompleted.cs" t="Include" />
           <e p="needlTrapMove.cs" t="Include" />
           <e p="needlTraps.cs" t="Include" />

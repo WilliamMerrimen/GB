@@ -11,7 +11,7 @@ public class sceneControl : MonoBehaviour
 
     public void nextLevel()
     {
-        if(SceneManager.GetActiveScene().buildIndex + 1 <= 1)
+        if(SceneManager.GetActiveScene().buildIndex + 1 <= 2)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
     }
 
