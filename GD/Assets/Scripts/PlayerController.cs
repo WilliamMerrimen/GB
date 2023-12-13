@@ -202,13 +202,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator JumpKD()
-    {
-        float time = 0.3f;
-        yield return new WaitForSeconds(time);
-        onGraund = true;
-    }
-
     private IEnumerator WaitForInvOne()
     {
         float time = delayToInvis;
@@ -320,7 +313,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Steps"))
             onGraund = false;
         if (other.gameObject.CompareTag("Graund"))
-            StartCoroutine(JumpKD());
+            onGraund = true;
         if (other.collider.CompareTag("NextLevel"))
         {
             nextLevel.SetActive(true);
