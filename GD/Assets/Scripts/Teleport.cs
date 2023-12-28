@@ -14,8 +14,10 @@ public class Teleport : MonoBehaviour
         //          for (int i = 0; i < teleportList.Count; i++)
         //                _teleports.Add(teleportList[i],i);
     }
+
     public void TeleportFunc(int numberOfTeleport)
     {
         _player.transform.position = teleportList[numberOfTeleport].position;
     }
+
 }

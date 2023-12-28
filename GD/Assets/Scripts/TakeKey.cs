@@ -10,6 +10,7 @@ public class TakeKey : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             scrptPlayer = other.GetComponent<PlayerController>();
+            scrptPlayer.keyLocateDel = gameObject;
             scrptPlayer.keyLocate = true;
             scrptPlayer.tipPressE.SetActive(true);
         }

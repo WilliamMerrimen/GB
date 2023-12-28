@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using Cinemachine;
 public class PlayerController : MonoBehaviour
 {
     private Animator _playerAnivator;
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Transform _playerPosition;
     private Vector3 _inputVector;
 
+    public CinemachineVirtualCamera cine;
     public Transform playerPos;
     public float rotationSpeed;
     public float speed = 5f;
@@ -27,14 +29,17 @@ public class PlayerController : MonoBehaviour
     public bool canToInvis = true;
     public GameObject keyLocateDel;
     public bool keyLocate = false;
-    private bool _isChest = false;
-    
+
+    public GameObject mapLvl;
     public GameObject teleportMenu;
     public GameObject tipPressE;
     public GameObject nextLevel;
     public GameObject stepRayUpper;
     public GameObject stepRayLower;
+    public GameObject gameOverGameObject;
 
+    public chestOpen scrptChestOpen;
+    public bool stopAnim = false;
     private Vector3 inputVector;
     private bool _teleportMenuCunOpen = false;
     private MeshRenderer _meshRenderer;
@@ -43,9 +48,14 @@ public class PlayerController : MonoBehaviour
     public bool isHit = false;
     public bool _hasKey = false;
     public int Money = 0;
+    public bool step;
+
+    public bool hasMap = false;
+    public bool lvlCompleted = false;
     
     private void Awake()
     {
+        Application.targetFrameRate = -1;
         _meshRenderer = gameObject.GetComponentInChildren<MeshRenderer>();
         _playerRigidbody = GetComponent<Rigidbody>();
         _playerInput = GetComponent<PlayerInput>();
@@ -55,69 +65,87 @@ public class PlayerController : MonoBehaviour
         _playerInputActions.PlayerAction.Skill.performed += Skill;
         _playerInputActions.PlayerAction.InteractionButton.performed += InteractionButton;
         _playerInputActions.PlayerAction.Resizeble.performed += Resizeble;
-        nextLevel.SetActive(false);
         _playerAnivator = GetComponent<Animator>();
+        GameOver._gameOverScreen = gameOverGameObject;
+        
+        hasMap = false;
+        lvlCompleted = false;
+        GameOver.GameOverOff();
     }
 
     private void FixedUpdate()
     {
-        Jump();
-        smallLogic();
-        moveAndAnimation();
-        stepClimb();
+        if (!GameOver.GameOverBl && !lvlCompleted)
+        {
+            smallLogic();
+            if (stopAnim == false)
+            {
+                moveAndAnimation();
+                Jump();
+            }
+            stepClimb();
+        }
     }
 
     public void moveAndAnimation()
     {
-        inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
-        Vector3 moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
-        moveDirection.Normalize();
-        if (moveDirection != Vector3.zero)
+        if (!GameOver.GameOverBl)
         {
-            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
-        }
-        if (!isHit)
-        {
-            _playerAnivator.SetBool("isClimbing", false);
-            _playerAnivator.speed = 1.0f;
-            _playerPosition.position += new Vector3(inputVector.x, 0f, inputVector.y) * speed * Time.fixedDeltaTime;
-            if (inputVector.x != 0 || inputVector.y != 0)
+            inputVector = _playerInputActions.PlayerAction.Movement.ReadValue<Vector2>();
+            Vector3 moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
+            moveDirection.Normalize();
+            if (moveDirection != Vector3.zero)
             {
-                _playerAnivator.SetBool("isRunning", true);
+                Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+                transform.rotation =
+                    Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
+            }
 
-            }
-            if (inputVector.x == 0 && inputVector.y == 0)
+            if (!isHit)
             {
-                _playerAnivator.SetBool("isRunning", false);
-            }
-        }
-        else
-        {
-            _playerAnivator.SetBool("isClimbing", true);
-            if (!Input.GetKey(KeyCode.LeftShift))
-            {
-                Vector3 climbVec = new Vector3(inputVector.x * (speed-2f), Math.Abs(inputVector.x != 0f ? inputVector.x  : inputVector.y) * (speed-2f), inputVector.y * (speed-2f)) * Time.fixedDeltaTime;
-                _playerPosition.position += climbVec;
-                if(climbVec.y == 0)
-                {
-                    _playerAnivator.speed = 0.0f;
-                }
-                else
-                {
-                    _playerAnivator.speed = 1.0f;
-                }
-            }
-            else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
-            {
-                Debug.Log("Shift!!!");
-                _playerPosition.position -= new Vector3(0, 1f, 0);
-                _playerAnivator.speed = 1.0f;
                 _playerAnivator.SetBool("isClimbing", false);
-                _playerAnivator.Play("Climbing Ladder Down");
-            }   
+                _playerAnivator.speed = 1.0f;
+                _playerPosition.position += new Vector3(inputVector.x, 0f, inputVector.y) * speed * Time.fixedDeltaTime;
+                if (inputVector.x != 0 || inputVector.y != 0)
+                {
+                    _playerAnivator.SetBool("isRunning", true);
+
+                }
+
+                if (inputVector.x == 0 && inputVector.y == 0)
+                {
+                    _playerAnivator.SetBool("isRunning", false);
+                }
+            }
+            else
+            {
+                _playerAnivator.SetBool("isClimbing", true);
+                if (!Input.GetKey(KeyCode.LeftShift))
+                {
+                    Vector3 climbVec = new Vector3(inputVector.x * (speed - 2f),
+                        Math.Abs(inputVector.x != 0f ? inputVector.x : inputVector.y) * (speed - 2f),
+                        inputVector.y * (speed - 2f)) * Time.fixedDeltaTime;
+                    _playerPosition.position += climbVec;
+                    if (climbVec.y == 0)
+                    {
+                        _playerAnivator.speed = 0.0f;
+                    }
+                    else
+                    {
+                        _playerAnivator.speed = 1.0f;
+                    }
+                }
+                else if (Input.GetKey(KeyCode.LeftShift) && !onGraund)
+                {
+                    Debug.Log("Shift!!!");
+                    _playerPosition.position -= new Vector3(0, 1f, 0);
+                    _playerAnivator.speed = 1.0f;
+                    _playerAnivator.SetBool("isClimbing", false);
+                    _playerAnivator.Play("Climbing Ladder Down");
+                }
+            }
         }
-        playerPos = _playerPosition;
+        //playerPos = _playerPosition;
     }
 
     public void smallLogic()
@@ -151,14 +179,26 @@ public class PlayerController : MonoBehaviour
         if(Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLower, 0.1f))
         {
             RaycastHit hitUpper;
-            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.1f))
             {
                 if(inputVector != Vector3.zero)
                 {
+                    
                     _playerPosition.position += new Vector3(0f, stepSmooth, 0f) * Time.fixedDeltaTime;
                     Debug.Log("123qwe123qwe");
                 }
             }
+            
+        }
+    }
+
+    public void Jump()
+    { 
+        if (Input.GetKeyDown(KeyCode.Space) && onGraund) 
+        {
+            StartCoroutine(JumpTimeStabil());
+            onGraund = false;
+            _playerAnivator.Play("Jumping Up");
         }
     }
 
@@ -194,16 +234,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Jump()
-    { 
-        if (Input.GetKeyDown(KeyCode.Space) && onGraund) 
-        {
-            StartCoroutine(JumpTimeStabil());
-            onGraund = false;
-            _playerAnivator.Play("Jumping Up");
-        }
+    public void ToChestAnim()
+    {
+        scrptChestOpen.ChestOpened();
     }
-
     public void Big()
     {
         smallPlayer = false;
@@ -241,39 +275,43 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
             invisible = true;
     }
-
+    public void DigKey()
+    {
+        cine.m_Lens.FieldOfView = 65f;
+        stopAnim = false;
+        _hasKey = true;
+        Destroy(keyLocateDel);
+        keyLocate = false;
+        if(tipPressE != null)
+        {
+            tipPressE.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("bug is " + tipPressE);
+        }
+    }
     public void InteractionButton(InputAction.CallbackContext context)
     {
-        Debug.Log(keyLocate + "Key"+"locate");
         if (context.performed)
         {
             if (_teleportMenuCunOpen)
             {
                 teleportMenu.SetActive(true);
             }
-            if (_isChest && _hasKey)
-            {
-                Debug.Log("Chest opened!");
-            }
+            
             if (keyLocate)
             {
-                _hasKey = true;
-                Destroy(keyLocateDel);
-                keyLocate = false;
-                if(tipPressE != null)
-                {
-                    tipPressE.SetActive(false);
-                }
-                else
-                {
-                    Debug.Log("bug is " + tipPressE);
-                }
+                _playerAnivator.Play("digging");
+                stopAnim = true;
             }
         }
     }
 
     public void OnCollisionEnter(Collision other)
     {
+        if (other.gameObject.CompareTag("Steps"))
+            onGraund = false;
         if (other.gameObject.CompareTag("Graund"))
             onGraund = true;
         if (other.collider.CompareTag("NextLevel"))

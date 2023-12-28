@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 478630}
   - component: {fileID: 3317910}
   - component: {fileID: 2301818}
-  - component: {fileID: 7493413967623739515}
-  - component: {fileID: 3296132787016175813}
-  - component: {fileID: 6217739112587339893}
+  - component: {fileID: 6239770377608894694}
+  - component: {fileID: 3358263268408248464}
+  - component: {fileID: 8313590682370399496}
   m_Layer: 0
   m_Name: SM_Prop_Chest_01
   m_TagString: Untagged
@@ -36,6 +36,7 @@ Transform:
   m_Children:
   - {fileID: 469456}
   - {fileID: 430606}
+  - {fileID: 4705497137231915974}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3317910
@@ -88,7 +89,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7493413967623739515
+--- !u!65 &6239770377608894694
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +110,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.97363305, y: 0.8093594, z: 0.685014}
   m_Center: {x: 5.8790006e-10, y: 0.4046797, z: 0.038124233}
---- !u!65 &3296132787016175813
+--- !u!65 &3358263268408248464
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,9 +129,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.21, y: 1.69, z: 2.41}
-  m_Center: {x: 0, y: 0.87, z: 0.66}
---- !u!114 &6217739112587339893
+  m_Size: {x: 0.97363305, y: 0.8093594, z: 0.685014}
+  m_Center: {x: 5.8790006e-10, y: 0.4046797, z: 0.038124233}
+--- !u!114 &8313590682370399496
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,10 +145,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cunOpenChest: 0
   item: {fileID: 0}
+  posAnim: {fileID: 4705497137231915974}
   pointSpawn: {fileID: 0}
   CheckPlayer: []
   scriptToCheckPlayer: {fileID: 0}
-  moneyInChest: 2
+  moneyInChest: 1
 --- !u!1 &156102
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,3 +316,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4634955166485549780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4705497137231915974}
+  m_Layer: 0
+  m_Name: PlayerPosAnim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4705497137231915974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4634955166485549780}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.007, y: 0.366, z: 0.519}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 478630}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
